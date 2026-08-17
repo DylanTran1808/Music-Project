@@ -222,7 +222,11 @@ __marimo__/
 # Data
 # =========================
 data/
+
 # =========================
 # Jupyter
 # =========================
 .ipynb_checkpoints/
+
+# MacOS
+.DS_Store

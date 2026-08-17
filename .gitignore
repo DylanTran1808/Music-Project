@@ -216,3 +216,13 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+# =========================
+# Data
+# =========================
+data/
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/

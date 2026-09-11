@@ -3,7 +3,7 @@ import pandas as pd
 
 
 
-path = "rawdata_spotify/Spotify_bhuy/Streaming_History_Video_2025.json"
+path = "data/raw_spot/Spotify_bhuy/Streaming_History_Audio_2024.json"
 with open(path, "r", encoding="utf-8") as f:
     data = json.load(f)
 

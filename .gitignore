@@ -221,7 +221,8 @@ __marimo__/
 # =========================
 # Data
 # =========================
-data/
+data/*
+!data/.gitkeep
 
 # =========================
 # Jupyter
@@ -230,3 +231,6 @@ data/
 
 # MacOS
 .DS_Store
+
+# VSCode
+.vscode

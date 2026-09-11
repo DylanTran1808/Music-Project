@@ -5,20 +5,20 @@ Populates: artists, albums, tracks, apple_music_tracks, user_track_stats
 (users.display_name must already exist, or is created on the fly)
 
 Usage:
-    python load_apple_music.py --xml /path/to/Library.xml --user "Me" --dsn "postgresql://user:pass@localhost:5432/music"
-
-Requires:
-    pip install psycopg2-binary pandas
+    python load_am.py --xml /path/to/Library.xml --user "Me"
 """
 
 import argparse
 import math
+import os
 import plistlib
 from datetime import datetime, timezone
-
+ 
 import pandas as pd
 import psycopg2
+from dotenv import load_dotenv
 from psycopg2.extras import execute_values
+ 
 
 
 # ---------------------------------------------------------------------------
@@ -309,6 +309,36 @@ def ingest(df: pd.DataFrame, dsn: str, user_display_name: str):
         conn.close()
 
 
+
+def get_dsn_from_env() -> str:
+    """Build a Postgres DSN from PG* variables in a .env file (or already-set
+    environment variables). Expects:
+ 
+        PGHOST=localhost
+        PGPORT=port
+        PGDATABASE=database_name
+        PGUSER=your_username
+        PGPASSWORD=your_password
+ 
+    Raises a clear error naming any variable that's missing, rather than
+    failing deep inside psycopg2 with a confusing message.
+    """
+    load_dotenv()  # reads .env from the current directory (no-op if absent)
+ 
+    required = ["PGHOST", "PGPORT", "PGDATABASE", "PGUSER", "PGPASSWORD"]
+    values = {key: os.getenv(key) for key in required}
+    missing = [key for key, val in values.items() if not val]
+    if missing:
+        raise EnvironmentError(
+            f"Missing required variable(s) in .env: {', '.join(missing)}. "
+            f"See .env.example for the expected format."
+        )
+ 
+    return (
+        f"postgresql://{values['PGUSER']}:{values['PGPASSWORD']}"
+        f"@{values['PGHOST']}:{values['PGPORT']}/{values['PGDATABASE']}"
+    )
+
 # ---------------------------------------------------------------------------
 # 5. CLI entry point
 # ---------------------------------------------------------------------------
@@ -317,14 +347,14 @@ def main():
     parser = argparse.ArgumentParser(description="Load Apple Music Library.xml into Postgres")
     parser.add_argument("--xml", required=True, help="Path to Apple Music Library.xml")
     parser.add_argument("--user", required=True, help="Display name for this library's owner")
-    parser.add_argument("--dsn", required=True,
-                         help="Postgres connection string, e.g. postgresql://user:pass@host:5432/dbname")
     args = parser.parse_args()
-
+ 
+    dsn = get_dsn_from_env()
+ 
     df = load_apple_xml(args.xml)
     print(f"Parsed {len(df)} tracks from {args.xml}")
-    ingest(df, args.dsn, args.user)
-
-
+    ingest(df, dsn, args.user)
+ 
+ 
 if __name__ == "__main__":
     main()

@@ -3,7 +3,7 @@ import plistlib
 import pandas as pd
 
 
-path = "rawdata_am/Library_kha.xml"
+path = "data/raw_am/Library_cuong.xml"
 
 with open(path, "rb") as f:
     data = plistlib.load(f)

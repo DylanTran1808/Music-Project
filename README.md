@@ -51,7 +51,7 @@ Use `uv run` in front of any command to run it inside the project's environment:
 
 ```bash
 
-uv run scripts/parse_am.py
+uv run python scripts/parse_am.py
 
 ```
 

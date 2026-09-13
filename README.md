@@ -69,7 +69,19 @@ This updates `pyproject.toml` and `uv.lock` for everyone. After pulling someone 
 
 ---
 
-## 5. Project structure
+## 5. In case having unfound problem:
+For Mac, use this:
+```
+set -x PATH $HOME/.local/bin $PATH
+```
+
+For Window, use this:
+```
+$env:Path += ";C:\Users\MY PC.local\bin"
+```
+---
+
+## 6. Project structure
 
 ```
 Project-Music/
@@ -102,7 +114,7 @@ Project-Music/
 
 ---
 
-## 6. Common commands cheat sheet
+## 7. Common commands cheat sheet
 
 | Task | Command |
 |---|---|

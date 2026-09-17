@@ -119,7 +119,6 @@ def apple_music_library_to_df(username: str, repo_id: str = DEFAULT_REPO_ID, tok
 # ---------------------------------------------------------------------------
 # Spotify (.json) — raw_spot/Spotify_<user>/
 # ---------------------------------------------------------------------------
-
 def stream_spotify_json(path_in_repo: str, repo_id: str = DEFAULT_REPO_ID, token: Optional[str] = HF_TOKEN) -> Iterator[dict]:
     """
     Streams one Spotify JSON export record-by-record instead of loading the
@@ -152,11 +151,111 @@ def stream_all_spotify_for_user(username: str, repo_id: str = DEFAULT_REPO_ID, t
     for path in list_spotify_files(username, repo_id, token):
         yield from stream_spotify_json(path, repo_id, token)
 
+_APPLE_MUSIC_COLUMN_MAP = {
+    "Track ID": "track_id",
+    "Name": "name",
+    "Kind": "kind",
+    "Size": "size_bytes",
+    "Total Time": "total_time_ms",
+    "Date Modified": "date_modified",
+    "Date Added": "date_added",
+    "Bit Rate": "bit_rate",
+    "Sample Rate": "sample_rate",
+    "Play Count": "play_count",
+    "Play Date": "play_date",
+    "Play Date UTC": "play_date_utc",
+    "Skip Count": "skip_count",
+    "Skip Date": "skip_date",
+    "Normalization": "normalization",
+    "Persistent ID": "persistent_id",
+    "Track Type": "track_type",
+    "Location": "location",
+    "File Folder Count": "file_folder_count",
+    "Library Folder Count": "library_folder_count",
+    "Artist": "artist",
+    "Album Artist": "album_artist",
+    "Composer": "composer",
+    "Album": "album",
+    "Genre": "genre",
+    "Disc Number": "disc_number",
+    "Disc Count": "disc_count",
+    "Track Number": "track_number",
+    "Track Count": "track_count",
+    "Year": "year",
+    "Release Date": "release_date",
+    "Artwork Count": "artwork_count",
+    "Sort Album": "sort_album",
+    "Sort Artist": "sort_artist",
+    "Sort Name": "sort_name",
+    "Explicit": "explicit",
+    "Apple Music": "apple_music",
+    "Favorited": "favorited",
+    "Loved": "loved",
+    "Protected": "protected",
+    "Purchased": "purchased",
+    "Compilation": "compilation",
+    "Playlist Only": "playlist_only",
+    "Sort Album Artist": "sort_album_artist",
+    "Work": "work",
+    "Movement Name": "movement_name",
+    "Grouping": "grouping",
+    "Movement Number": "movement_number",
+    "Movement Count": "movement_count",
+    "Part Of Gapless Album": "part_of_gapless_album",
+    "Rating": "rating",
+    "Album Rating": "album_rating",
+    "Album Rating Computed": "album_rating_computed",
+    "Sort Composer": "sort_composer",
+    "Clean": "clean",
+}
 
-def spotify_user_to_df(username: str, repo_id: str = DEFAULT_REPO_ID, token: Optional[str] = HF_TOKEN) -> pd.DataFrame:
-    """Convenience: load all of one user's Spotify streaming history into a single DataFrame."""
-    records = list(stream_all_spotify_for_user(username, repo_id, token))
-    return pd.DataFrame(records)
+_APPLE_MUSIC_DATETIME_COLS = ["date_modified", "date_added", "play_date_utc", "skip_date", "release_date"]
+_APPLE_MUSIC_BOOL_COLS = [
+    "explicit", "apple_music", "favorited", "loved", "protected",
+    "purchased", "compilation", "playlist_only", "part_of_gapless_album", "clean",
+]
+ 
+ 
+def apple_music_library_to_df(
+    username: str,
+    repo_id: str = DEFAULT_REPO_ID,
+    token: Optional[str] = HF_TOKEN,
+    coerce_types: bool = True,
+) -> pd.DataFrame:
+    """
+    Load an Apple Music XML export straight into a DataFrame of tracks, with
+    columns renamed to snake_case for easy attribute-style / query access
+    (e.g. df.play_count, df.query("genre == 'Rock'")).
+ 
+    Set coerce_types=False to get the raw values plistlib returns (no dtype
+    conversion), e.g. if you want to inspect the export before cleaning it.
+    """
+    lib = load_apple_music_library(username, repo_id, token)
+    df = pd.DataFrame(list(lib.get("Tracks", {}).values()))
+ 
+    df = df.rename(columns=_APPLE_MUSIC_COLUMN_MAP)
+    # Any column plistlib produced that isn't in the map keeps its original
+    # name (rather than being silently dropped), so nothing is lost.
+ 
+    if coerce_types and not df.empty:
+        for col in _APPLE_MUSIC_DATETIME_COLS:
+            if col in df.columns:
+                df[col] = pd.to_datetime(df[col], errors="coerce", utc=True)
+ 
+        for col in _APPLE_MUSIC_BOOL_COLS:
+            if col in df.columns:
+                df[col] = df[col].fillna(False).astype(bool)
+ 
+        if "total_time_ms" in df.columns:
+            df["total_time_ms"] = pd.to_numeric(df["total_time_ms"], errors="coerce")
+            df["duration_sec"] = df["total_time_ms"] / 1000
+ 
+        for col in ["play_count", "skip_count", "year", "bit_rate", "sample_rate", "rating", "album_rating"]:
+            if col in df.columns:
+                df[col] = pd.to_numeric(df[col], errors="coerce").astype("Int64")
+ 
+    df["source_user"] = username
+    return df
 
 
 # ---------------------------------------------------------------------------

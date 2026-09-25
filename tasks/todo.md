@@ -119,7 +119,9 @@ _Done 2026-09-25. Also added: `pycountry` for the country/language lists (reused
 
 ---
 
-## Task 4: Apple Music import (schema + loader + app upload, local)
+## Task 4: Apple Music import (schema + loader + app upload, local) ✅
+
+_Done 2026-09-25. Design change: `library_items` keeps **one row per Apple item** (unique per account + Persistent ID) pointing at the shared track, instead of summing duplicates into one row. Totals add up in queries, and remix/original items keep their own `version_tags`. Apple exports have no catalog id (Persistent IDs are per-library), so `track_external_ids` holds Spotify URIs only. Real data: kien 5,258 plays / 1,472 items (old P-Music had 4,732), 1,198 artists after credit splitting, 33 tracks shared across people. Also: an empty library is refused instead of wiping the previous load; a failed upload never replaces the last good staged file; the app now has file-based pages (`app/pages/`) and a shared `app/common.py`; the cached DB connection is ping-validated so it recovers after a Postgres restart. Manual check: kha uploaded through the app into `p_music` (203 items / 3,524 plays = XML)._
 
 **Description:** `migrations/002_apple.sql`: `library_items (account_id, track_id,
 apple_persistent_id, play_count, skip_count, loved, date_added, last_played, version_tags,
@@ -130,13 +132,13 @@ parses with `apple_insights.load_library(path=…)`, upserts artists/tracks/cred
 the file in `data/uploads/`, and loads it.
 
 **Acceptance criteria:**
-- [ ] kien's loaded play total = sum of `Play Count` in `Library_kien.xml` (5,258)
-- [ ] Loading the same file twice leaves all row counts unchanged
-- [ ] No `artists.name` is an unsplit multi-artist credit
+- [x] kien's loaded play total = sum of `Play Count` in `Library_kien.xml` (5,258)
+- [x] Loading the same file twice leaves all row counts unchanged
+- [x] No `artists.name` is an unsplit multi-artist credit
 
 **Verification:**
-- [ ] Tests pass: `uv run python tests/test_db_load.py` (synthetic plist with a duplicate item)
-- [ ] Manual check: upload `data/raw_am/Library_kha.xml` in the app, count matches the XML
+- [x] Tests pass: `uv run python tests/test_db_load.py` (synthetic plist with a duplicate item)
+- [x] Manual check: upload `data/raw_am/Library_kha.xml` in the app, count matches the XML
 
 **Dependencies:** T3
 
@@ -211,7 +213,7 @@ successful DB load and records `ingest_runs.hf_path`. On failure it shows the er
 
 ## Task 7: Backfill existing `data/` + cross-source check
 
-**Description:** `scripts/backfill.py` creates one person + one account for each file in `data/`
+**Description:** `scripts/backfill.py` creates (or reuses: `kha` + Apple account `kha` already exist in `p_music` from the T4 manual check) one person + one account for each file in `data/`
 (kien, kha, cuong → Apple; viethung, bhuy → Spotify) and loads them through the T4/T5 loaders.
 No HF push, since these files are already there. It prints per-account totals vs source, the
 Apple↔Spotify `match_key` overlap per pair, and merge groups with > 2 source ids.

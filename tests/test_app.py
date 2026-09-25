@@ -1,16 +1,23 @@
-"""Headless check of the Streamlit app's Users page against p_music_test. Run: uv run python tests/test_app.py"""
+"""Headless checks of the Streamlit app pages against p_music_test. Run: uv run python tests/test_app.py"""
 
 import os
+import shutil
+import tempfile
 from datetime import date
+from pathlib import Path
 
 from dotenv import load_dotenv
 from psycopg2.extensions import make_dsn
 from streamlit.testing.v1 import AppTest
 
-from music_project.db import get_user, list_accounts, migrate
+from music_project.db import add_account, get_user, list_accounts, migrate, upsert_user
 from test_db import TEST_DB, run, scratch_db
+from test_db_load import _item, write_library
 
 APP = os.path.join(os.path.dirname(__file__), "..", "app", "streamlit_app.py")
+# Set before the app is first imported: app/common.py reads it once at import time.
+UPLOADS = Path(tempfile.mkdtemp())
+os.environ["UPLOAD_DIR"] = str(UPLOADS)
 
 
 def save(at, handle):
@@ -18,9 +25,13 @@ def save(at, handle):
     assert not at.exception, at.exception
 
 
-def test_users_page():
+def use_test_db():
     load_dotenv()
     os.environ["DATABASE_URL"] = make_dsn(os.environ["DATABASE_URL"], dbname=TEST_DB)
+
+
+def test_users_page():
+    use_test_db()
     with scratch_db() as conn:
         migrate(conn)
         at = AppTest.from_file(APP, default_timeout=30).run()
@@ -74,6 +85,42 @@ def test_users_page():
         assert at.error and get_user(conn, "Bad Handle") is None
 
 
+def test_import_apple():
+    use_test_db()
+    with tempfile.TemporaryDirectory() as tmp, scratch_db() as conn:
+        migrate(conn)
+        upsert_user(conn, "tu")
+        add_account(conn, "tu", "apple_music", "tu_am")
+        upsert_user(conn, "nobody")
+        xml = Path(tmp) / "src.xml"
+        write_library(xml, [_item(1, "P1", "Hit", "A", plays=3), _item(2, "P2", "Other", "B", plays=4)])
+
+        at = AppTest.from_file(APP, default_timeout=30).run()
+        at.switch_page("pages/import_data.py").run()
+        assert not at.exception, at.exception
+
+        # A person without an Apple account is pointed at the Users page.
+        at.selectbox(key="import_person").select("nobody").run()
+        assert any("Users page" in i.value for i in at.info)
+
+        at.selectbox(key="import_person").select("tu").run()
+        at.get("file_uploader")[0].upload("Library.xml", xml.read_bytes(), "text/xml").run()
+        at.button(key="load_apple").click().run()
+        assert not at.exception and not at.error, (at.exception, [e.value for e in at.error])
+        assert any("2 items" in s.value and "7 plays" in s.value for s in at.success), [s.value for s in at.success]
+        assert run(conn, "SELECT sum(play_count) FROM library_items")[0][0] == 7
+        assert (UPLOADS / "apple_music" / "Library_tu_am.xml").read_bytes() == xml.read_bytes()
+
+        # A broken file shows an error, leaves the data alone, and isn't kept as the staged copy.
+        at.get("file_uploader")[0].upload("Library.xml", b"not a plist", "text/xml").run()
+        at.button(key="load_apple").click().run()
+        assert not at.exception and at.error
+        assert run(conn, "SELECT sum(play_count) FROM library_items")[0][0] == 7
+        assert (UPLOADS / "apple_music" / "Library_tu_am.xml").read_bytes() == xml.read_bytes()
+
+
 if __name__ == "__main__":
     test_users_page()
+    test_import_apple()
+    shutil.rmtree(UPLOADS)
     print("test_app: ok")

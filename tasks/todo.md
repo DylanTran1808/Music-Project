@@ -241,10 +241,12 @@ Apple↔Spotify `match_key` overlap per pair, and merge groups with > 2 source i
 ## Task 8: Artist demographics from MusicBrainz
 
 **Description:** `migrations/004_artist_demographics.sql` adds these columns to `artists`:
-`mb_id`, `artist_type`, `gender`, `country`, `area`, `birth_area`, `begin_date`, `end_date`,
-`tags text[]`, `match_status` (CHECK `auto|ambiguous|not_found|manual`), `demographics_source`
-(CHECK `musicbrainz|wikidata|user`), `wikidata_id`, `candidates jsonb` (MusicBrainz + Wikidata hits
-kept for review), `fetched_at`.
+`mb_id`, `artist_type`, `gender` (users' fixed list + `not_applicable`), `country` (ISO alpha-2),
+`area`, `birth_area`, `begin_date`, `end_date`, `release_languages text[]` (ISO 639-1, most frequent
+first), `first_release_year`, `tags text[]`, `match_status` (CHECK `auto|ambiguous|not_found|manual`),
+`demographics_source` (CHECK `musicbrainz|wikidata|user`), `wikidata_id`, `candidates jsonb`
+(MusicBrainz + Wikidata hits kept for review), `fetched_at`. Plus a view `artist_demographics`
+that adds computed `age` (persons: years since birth, capped at death) and `years_active` (groups).
 
 `connectors/wikidata.py` has `search_wikidata(name)`: `wbsearchentities`, then `wbgetentities` for
 P31/P21/P27/P569/P19/P571/P434. It runs only for `ambiguous` / `not_found` artists, and its hits are
@@ -252,6 +254,8 @@ stored as candidates, never applied.
 
 `connectors/musicbrainz.py` has:
 - `search_artist(name)`: 1 req/s throttle, User-Agent built from `MB_CONTACT`;
+- `artist_releases(mb_id)`: one release browse, giving `release_languages` (normalised `vie`→`vi` etc.),
+  `first_release_year`, and the release titles for the album tie-break;
 - `pick_match(name, candidates, album_titles)`: a pure function implementing the match rule in `plan.md`;
 - `enrich_artists(conn, limit=None)`: looks up artists where `fetched_at IS NULL` and never
   touches `manual` rows.
@@ -262,6 +266,7 @@ the new artists only, with a progress bar; `requests` is declared in `pyproject.
 **Acceptance criteria:**
 - [ ] `pick_match`: exact unique hit → `auto`; two close hits with no album overlap → `ambiguous`; album overlap breaks a tie; no hits → `not_found`
 - [ ] Re-running after an interruption continues where it stopped; a `manual` row is unchanged after a re-run
+- [ ] From fixtures: a person gets gender/country/birth date, `release_languages` in frequency order with ISO 639-1 codes (`{vi,en}` for 11 `vie` + 2 `eng` releases), and `first_release_year`; a group gets `gender = 'not_applicable'`. `artist_demographics.age` is correct for a living, a deceased, and an undated artist (NULL)
 - [ ] Full run over the backfilled artists prints the auto / ambiguous / not_found split, weighted by plays too (coverage of what people actually listen to)
 - [ ] Unmatched artists are written to `data/artist_review.md` (per artist: plays, our album titles, MusicBrainz candidates, Wikidata candidates with description/gender/country/birth). **Show it to the user and apply only their choices** (`set_artist_demographics`, saved as `manual`)
 
@@ -293,8 +298,9 @@ the new artists only, with a progress bar; `requests` is declared in `pyproject.
 - `shared_tracks(a, b)`, `search_tracks(text)`
 - `users_by(gender=, age_min=, age_max=, city=, country=, native_language=, musical_background=, instrument=, genre=)`
 - artist demographics:
-  - `artist_profile(name)`: includes computed age
-  - `listening_by_artist_attr(handle, attr)`: share of a person's plays by artist `gender` / `country` / `artist_type` / age band
+  - `artist_profile(name)`: all demographic fields + computed age / years active
+  - `listening_by_artist_attr(handle, attr)`: share of a person's plays by artist `gender` / `country` / `artist_type` / age band / release language (a multi-language artist's plays are split evenly across their languages)
+  - `artists_by(gender=, country=, release_language=, age_min=, age_max=)`
   - `artists_needing_review()`: `ambiguous` + `not_found`, most-played first
 - `sql(query, params)`: ad-hoc, run in a read-only transaction
 
@@ -328,7 +334,7 @@ the new artists only, with a progress bar; `requests` is declared in `pyproject.
   - filter people by demographics.
 - **Artists page**: a review queue from `artists_needing_review()`. For each artist it shows
   the MusicBrainz and Wikidata candidates in two columns (name, description/disambiguation,
-  type, gender, country, birth date/place). You pick one or type the values yourself, and the
+  type, gender, country, birth date/place, release languages). You pick one or type the values yourself, and the
   row is saved with `match_status = 'manual'` and the matching `demographics_source` (via
   `set_artist_demographics` in the connector).
 

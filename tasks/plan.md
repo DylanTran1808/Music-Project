@@ -68,13 +68,30 @@ Defects in the current `P-Music` that the new schema has to fix:
   - `favorite_genres text[]`, `notes`, and `extra jsonb` for any further fields (key/value editor in the app).
 - **Artist demographics come from MusicBrainz** (free, no API key, good coverage in a
   spot check: "Sơn Tùng M-TP" → Person, male, VN, born 1994-07-05 in Thái Bình).
-  - Fields: `artist_type` (person / group / …), `gender`, `country`, `area`, `birth_area`
-    (birth city, or where a group formed), `begin_date` / `end_date` (birth/formation,
-    death/split), `tags` (genres), `mb_id`.
-  - Artist age is computed at query time from `begin_date`.
-  - One search call per artist returns all of these fields; ~1,000 artists at MusicBrainz's
-    1 request/second limit ≈ 17 min. It runs as a resumable script and skips artists already
-    looked up. It runs inside the app too, for artists added by a new upload.
+  - Artist demographic fields:
+
+    | Field | Meaning | From |
+    |---|---|---|
+    | `artist_type` | person / group / orchestra / choir / character / other | MB search |
+    | `gender` | same fixed list as users (+ `not_applicable` for groups) | MB search |
+    | `country` | ISO alpha-2, same format as `users.country` | MB search |
+    | `area`, `birth_area` | where they're based; birth city (or where a group formed) | MB search |
+    | `begin_date`, `end_date` | birth / formation, death / split | MB search |
+    | **age** | not stored; computed at query time: persons = years since `begin_date` (up to `end_date` if deceased); groups = years active | computed |
+    | `release_languages text[]` | languages of their releases, most frequent first, e.g. `{vi,en}` | MB releases |
+    | `first_release_year` | earliest release *on MusicBrainz*: a lower bound on the debut, not the true debut (MB listed Sơn Tùng's first release as 2016; he debuted in 2012) | MB releases |
+    | `tags text[]` | genres | MB search |
+
+  - Language codes are normalised to ISO 639-1 (`vie` → `vi`), with a small map for the
+    languages we see; others keep their 3-letter code. So `release_languages` compares
+    directly with `users.native_language`.
+  - Two calls per matched artist: a search, then one release browse (also used for the
+    album tie-break). ~1,000 artists at MusicBrainz's 1 request/second limit ≈ 35 min for the
+    first run. It's resumable and skips artists already looked up, and it runs inside the app
+    too, for artists added by a new upload.
+  - Artists MusicBrainz lists with no release language keep `release_languages = '{}'`
+    (unknown). We don't guess from titles, because `script_lang` only tells Latin script apart
+    from others, not English from Vietnamese written without diacritics.
   - Match rule:
     - accept if the top hit scores 100 and the next hit scores clearly lower;
     - otherwise break the tie with one extra call that checks the candidate's release titles

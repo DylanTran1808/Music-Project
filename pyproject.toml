@@ -12,6 +12,13 @@ dependencies = [
     "torch",
     "torchaudio",
     "ipykernel>=7.3.0",
+    "pyarrow>=25.0.1",
+    "librosa>=0.11.0",
+    "pydub>=0.25.1",
+    "ffmpeg>=1.4",
+    "transformers==4.44.0",
+    "nnaudio>=0.3.4",
+    "langdetect>=1.0.9",
     "streamlit>=1.64.0",
     "pycountry>=26.2.16",
 ]

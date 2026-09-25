@@ -234,3 +234,6 @@ data/*
 
 # VSCode
 .vscode
+
+# Claude Code local settings
+.claude/

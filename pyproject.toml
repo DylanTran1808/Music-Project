@@ -12,6 +12,8 @@ dependencies = [
     "torch",
     "torchaudio",
     "ipykernel>=7.3.0",
+    "streamlit>=1.64.0",
+    "pycountry>=26.2.16",
 ]
 
 

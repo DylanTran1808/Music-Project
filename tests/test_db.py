@@ -2,11 +2,14 @@
 
 import tempfile
 from contextlib import contextmanager
+from datetime import date
 from pathlib import Path
 
 import psycopg2
 
-from music_project.db import connect, migrate
+from music_project.db import (
+    add_account, birth_year_from_age, connect, get_user, list_accounts, list_users, migrate, upsert_user,
+)
 
 TEST_DB = "p_music_test"
 
@@ -17,7 +20,7 @@ def scratch_db():
     admin = connect(dbname="postgres")
     admin.autocommit = True
     with admin.cursor() as cur:
-        cur.execute(f"DROP DATABASE IF EXISTS {TEST_DB}")
+        cur.execute(f"DROP DATABASE IF EXISTS {TEST_DB} WITH (FORCE)")
         cur.execute(f"CREATE DATABASE {TEST_DB}")
     conn = connect(dbname=TEST_DB)
     try:
@@ -25,7 +28,7 @@ def scratch_db():
     finally:
         conn.close()
         with admin.cursor() as cur:
-            cur.execute(f"DROP DATABASE {TEST_DB}")
+            cur.execute(f"DROP DATABASE {TEST_DB} WITH (FORCE)")
         admin.close()
 
 
@@ -147,8 +150,63 @@ def test_core_schema():
         assert rejected(conn, "DELETE FROM user_accounts WHERE id = %s", (aid,))          # has ingest runs
 
 
+def test_birth_year_from_age():
+    assert birth_year_from_age(25, today=date(2026, 9, 25)) == 2001
+
+
+def test_people_and_accounts():
+    with scratch_db() as conn:
+        migrate(conn)
+
+        # Create, then a partial edit: given fields change, the rest are kept.
+        uid = upsert_user(conn, "kien", display_name="Dylan", gender="male", birth_year=2001,
+                          country="VN", native_language="vi", languages=["en"], instruments=["guitar"],
+                          extra={"income_band": "b"})
+        assert upsert_user(conn, "kien", city="Hanoi", instruments=["guitar", "piano"]) == uid
+        u = get_user(conn, "kien")
+        assert (u["display_name"], u["city"], u["birth_year"]) == ("Dylan", "Hanoi", 2001)
+        assert u["instruments"] == ["guitar", "piano"] and u["extra"] == {"income_band": "b"}
+        assert run(conn, "SELECT count(*) FROM users")[0][0] == 1
+        assert get_user(conn, "nobody") is None
+
+        # Explicit None clears a field; None for an array field means empty.
+        upsert_user(conn, "kien", city=None, languages=None)
+        u = get_user(conn, "kien")
+        assert u["city"] is None and u["languages"] == []
+
+        # Bad input raises instead of writing.
+        for bad in [dict(birth_year=date.today().year + 1), dict(favourite_colour="red")]:
+            try:
+                upsert_user(conn, "kien", **bad)
+                raise AssertionError(f"accepted {bad}")
+            except ValueError:
+                pass
+
+        # Spotify first, Apple later: two accounts on one person.
+        add_account(conn, "kien", "spotify", "kien_sp", active_from=date(2020, 1, 1), active_to=date(2024, 6, 1))
+        add_account(conn, "kien", "apple_music", "kien", active_from=date(2024, 6, 1))
+        assert [(a["source"], a["source_username"]) for a in list_accounts(conn, "kien")] \
+            == [("apple_music", "kien"), ("spotify", "kien_sp")]
+
+        upsert_user(conn, "bhuy")
+        try:
+            add_account(conn, "bhuy", "spotify", "kien_sp")
+            raise AssertionError("took another person's account")
+        except psycopg2.errors.UniqueViolation:
+            pass
+        try:
+            add_account(conn, "ghost", "spotify", "x")
+            raise AssertionError("account for unknown person")
+        except ValueError:
+            pass
+
+        assert [u["handle"] for u in list_users(conn)] == ["bhuy", "kien"]
+
+
 if __name__ == "__main__":
     test_migrate()
     test_repo_migrations_apply()
     test_core_schema()
+    test_birth_year_from_age()
+    test_people_and_accounts()
     print("test_db: ok")

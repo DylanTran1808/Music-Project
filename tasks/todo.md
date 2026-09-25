@@ -78,11 +78,13 @@ _Done 2026-09-25. Extra decisions: `country` is ISO alpha-2, `native_language` a
 ## Checkpoint: Foundation
 - [x] `p_music` exists; `migrate` applies twice cleanly
 - [x] `tests/test_db.py` passes
-- [ ] Human reviews `001_core.sql` before any loader is written
+- [x] Human reviews `001_core.sql` before any loader is written
 
 ---
 
-## Task 3: People + accounts: connector + app Users page
+## Task 3: People + accounts: connector + app Users page ✅
+
+_Done 2026-09-25. Also added: `pycountry` for the country/language lists (reused in T8 for `vie`→`vi`); `.streamlit/config.toml` binds to localhost and turns off usage stats; `tests/test_app.py` drives the real form headlessly (Streamlit AppTest) against `p_music_test`. The manual check ran through AppTest, so `p_music` has no test rows._
 
 **Description:** Connector functions `upsert_user(conn, handle, **demographics)`, `get_user`,
 `list_users`, and `add_account(conn, handle, source, source_username, active_from=None)`. Add
@@ -97,13 +99,13 @@ _Done 2026-09-25. Extra decisions: `country` is ISO alpha-2, `native_language` a
 - an accounts table with "add account" (source + username + optional dates).
 
 **Acceptance criteria:**
-- [ ] Creating then editing a person gives one `users` row with the latest values; entering age 25 in 2026 stores `birth_year = 2001`
-- [ ] Adding an Apple account to a person who already has a Spotify account works; reusing a taken `(source, username)` shows an error message instead of a stack trace
-- [ ] `uv run streamlit run app/streamlit_app.py` starts on localhost
+- [x] Creating then editing a person gives one `users` row with the latest values; entering age 25 in 2026 stores `birth_year = 2001`
+- [x] Adding an Apple account to a person who already has a Spotify account works; reusing a taken `(source, username)` shows an error message instead of a stack trace
+- [x] `uv run streamlit run app/streamlit_app.py` starts on localhost
 
 **Verification:**
-- [ ] Tests pass: `tests/test_db.py` covers the upsert round-trip and two accounts on one user
-- [ ] Manual check: create "testuser" in the app with two accounts, then check the rows in `psql`
+- [x] Tests pass: `tests/test_db.py` covers the upsert round-trip and two accounts on one user
+- [x] Manual check: create "testuser" in the app with two accounts, then check the rows in `psql`
 
 **Dependencies:** T2
 

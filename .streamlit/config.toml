@@ -1,0 +1,6 @@
+# Local tool with no auth and personal data: listen on this machine only.
+[server]
+address = "localhost"
+
+[browser]
+gatherUsageStats = false

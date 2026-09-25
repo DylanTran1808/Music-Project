@@ -166,10 +166,10 @@ Full task cards are in `tasks/todo.md`.
 
 ### Checkpoint: Foundation
 - [x] `p_music` exists; migrations apply twice cleanly
-- [ ] Human reviews `001_core.sql` (demographic columns + account model)
+- [x] Human reviews `001_core.sql` (demographic columns + account model)
 
 ### Phase 2: Intake
-- [ ] T3: People + accounts (connector + app Users page)
+- [x] T3: People + accounts (connector + app Users page)
 - [ ] T4: Apple Music import
 - [ ] T5: Spotify import
 - [ ] T6: Push uploads to Hugging Face

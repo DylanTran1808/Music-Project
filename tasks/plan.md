@@ -145,10 +145,10 @@ Full task cards are in `tasks/todo.md`.
 
 ### Phase 1: Foundation
 - [x] T1: DB connection + migration runner
-- [ ] T2: Core schema (people, accounts, demographics, tracks)
+- [x] T2: Core schema (people, accounts, demographics, tracks)
 
 ### Checkpoint: Foundation
-- [ ] `p_music` exists; migrations apply twice cleanly
+- [x] `p_music` exists; migrations apply twice cleanly
 - [ ] Human reviews `001_core.sql` (demographic columns + account model)
 
 ### Phase 2: Intake

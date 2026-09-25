@@ -33,7 +33,9 @@ each file in `schema_migrations`. Create the `p_music` database.
 
 ---
 
-## Task 2: Core schema (people, accounts, demographics, tracks)
+## Task 2: Core schema (people, accounts, demographics, tracks) ✅
+
+_Done 2026-09-25. Extra decisions: `country` is ISO alpha-2, `native_language` an ISO 639 code, array columns default to `{}`, `birth_year` DB range 1900–2100 (future years rejected in the T3 connector), `updated_at` maintained by trigger, `extra` must be a JSON object._
 
 **Description:** `migrations/001_core.sql`:
 - `users`:
@@ -55,13 +57,13 @@ each file in `schema_migrations`. Create the `p_music` database.
 - `ingest_runs (account_id, file_hash, hf_path, loaded_at, row_count)`
 
 **Acceptance criteria:**
-- [ ] Migration applies on an empty DB; FKs, uniques and CHECKs are in place
-- [ ] Rejected: out-of-range `birth_year`, a bad handle, a gender or musical-background value not in its list, a duplicate `(source, source_username)`
-- [ ] One user can own a Spotify and an Apple account; deleting a user is blocked while accounts have data (`ON DELETE RESTRICT`)
+- [x] Migration applies on an empty DB; FKs, uniques and CHECKs are in place
+- [x] Rejected: out-of-range `birth_year`, a bad handle, a gender or musical-background value not in its list, a duplicate `(source, source_username)`
+- [x] One user can own a Spotify and an Apple account; deleting a user is blocked while accounts have data (`ON DELETE RESTRICT`)
 
 **Verification:**
-- [ ] Tests pass: `tests/test_db.py` asserts each rejection above
-- [ ] Manual check: `psql p_music -c '\d users' -c '\d user_accounts'`
+- [x] Tests pass: `tests/test_db.py` asserts each rejection above
+- [x] Manual check: `psql p_music -c '\d users' -c '\d user_accounts'`
 
 **Dependencies:** T1
 
@@ -74,8 +76,8 @@ each file in `schema_migrations`. Create the `p_music` database.
 ---
 
 ## Checkpoint: Foundation
-- [ ] `p_music` exists; `migrate` applies twice cleanly
-- [ ] `tests/test_db.py` passes
+- [x] `p_music` exists; `migrate` applies twice cleanly
+- [x] `tests/test_db.py` passes
 - [ ] Human reviews `001_core.sql` before any loader is written
 
 ---

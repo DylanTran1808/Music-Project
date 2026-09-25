@@ -134,3 +134,21 @@ def list_accounts(conn, handle: str) -> list:
             FROM user_accounts a JOIN users u ON u.id = a.user_id
             WHERE u.handle = %s ORDER BY a.source, a.source_username""", (handle,))
         return cur.fetchall()
+
+
+# ---------------------------------------------------------------------------
+# Hugging Face bookkeeping
+# ---------------------------------------------------------------------------
+
+def set_hf_path(conn, run_id: int, hf_path: str) -> None:
+    """Records that an ingest run's export is on Hugging Face at hf_path."""
+    with conn, conn.cursor() as cur:
+        cur.execute("UPDATE ingest_runs SET hf_path = %s WHERE id = %s", (hf_path, run_id))
+
+
+def account_pushed(conn, account_id: int, hf_path: str) -> bool:
+    """True if this account has put hf_path on Hugging Face before, i.e. it may overwrite it."""
+    with conn, conn.cursor() as cur:
+        cur.execute("SELECT EXISTS (SELECT 1 FROM ingest_runs WHERE account_id = %s AND hf_path = %s)",
+                    (account_id, hf_path))
+        return cur.fetchone()[0]

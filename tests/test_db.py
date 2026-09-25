@@ -8,7 +8,8 @@ from pathlib import Path
 import psycopg2
 
 from music_project.db import (
-    add_account, birth_year_from_age, connect, get_user, list_accounts, list_users, migrate, upsert_user,
+    account_pushed, add_account, birth_year_from_age, connect, get_user, list_accounts, list_users, migrate,
+    set_hf_path, upsert_user,
 )
 
 TEST_DB = "p_music_test"
@@ -203,10 +204,25 @@ def test_people_and_accounts():
         assert [u["handle"] for u in list_users(conn)] == ["bhuy", "kien"]
 
 
+def test_hf_path_ownership():
+    with scratch_db() as conn:
+        migrate(conn)
+        upsert_user(conn, "a")
+        upsert_user(conn, "b")
+        acct_a = add_account(conn, "a", "apple_music", "a")
+        acct_b = add_account(conn, "b", "apple_music", "b")
+        run_id = run(conn, "INSERT INTO ingest_runs (account_id, file_hash) VALUES (%s, 'h') RETURNING id", (acct_a,))[0][0]
+        assert not account_pushed(conn, acct_a, "raw_am/Library_a.xml")
+        set_hf_path(conn, run_id, "raw_am/Library_a.xml")
+        assert account_pushed(conn, acct_a, "raw_am/Library_a.xml")
+        assert not account_pushed(conn, acct_b, "raw_am/Library_a.xml")
+
+
 if __name__ == "__main__":
     test_migrate()
     test_repo_migrations_apply()
     test_core_schema()
     test_birth_year_from_age()
     test_people_and_accounts()
+    test_hf_path_ownership()
     print("test_db: ok")

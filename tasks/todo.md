@@ -183,7 +183,9 @@ accepts a `.zip` or several `Streaming_History_*.json` files.
 
 ---
 
-## Task 6: Push uploads to Hugging Face
+## Task 6: Push uploads to Hugging Face ✅
+
+_Done 2026-09-25. `connectors/upload.py` (`push_apple`, `push_spotify`, `PushError`, `PushRefused`) knows nothing about the DB and refuses to overwrite an existing path unless `overwrite=True`. The app passes `overwrite=True` only when this account's own `ingest_runs.hf_path` already records that path (`db.account_pushed` / `db.set_hf_path`), because every teammate has their own local DB and HF is shared. It isn't re-exported from `connectors/__init__` (that would be a circular import with `analysis.spotify_insights._PII`). The token has `repo.write` on the CongtyTuban org, so no new token was needed. Real HF check with throwaway `zz_intake_test` files: two push commits, a second push refused, no `ip_addr` in the pushed Spotify JSON, the Apple XML byte-identical, and both files deleted in one commit (dataset back to 974 files; the 3 commits stay in HF history). App tests push to a fake hub only._
 
 **Description:** Add `push_apple(xml_path, source_username)` and `push_spotify(folder, source_username)`
 in `connectors/common.py` (or a small `connectors/upload.py`). They use `HfApi.upload_file` /
@@ -193,13 +195,13 @@ successful DB load and records `ingest_runs.hf_path`. On failure it shows the er
 "retry push" button.
 
 **Acceptance criteria:**
-- [ ] Pushed Spotify JSON contains no `ip_addr`; the Apple XML is pushed unchanged
-- [ ] Pushing to a path owned by a *different* account is refused; the same account re-pushing creates a new HF commit
-- [ ] Missing write permission / expired token gives a clear message ("token needs write on CongtyTuban/Streaming-data"), and the DB load is kept. **During the build: on this error, stop and ask the user for a new token.**
+- [x] Pushed Spotify JSON contains no `ip_addr`; the Apple XML is pushed unchanged
+- [x] Pushing to a path owned by a *different* account is refused; the same account re-pushing creates a new HF commit
+- [x] Missing write permission / expired token gives a clear message ("token needs write on CongtyTuban/Streaming-data"), and the DB load is kept. **During the build: on this error, stop and ask the user for a new token.**
 
 **Verification:**
-- [ ] Tests pass: `uv run python tests/test_hf_push.py` (mocked `HfApi`, asserts paths + stripped fields)
-- [ ] Manual check: upload a small test export for a `testuser` account, see the commit on HF, then delete that test file from HF
+- [x] Tests pass: `uv run python tests/test_hf_push.py` (mocked `HfApi`, asserts paths + stripped fields)
+- [x] Manual check: upload a small test export for a `testuser` account, see the commit on HF, then delete that test file from HF
 
 **Dependencies:** T4, T5
 
@@ -217,7 +219,7 @@ successful DB load and records `ingest_runs.hf_path`. On failure it shows the er
 
 **Description:** `scripts/backfill.py` creates (or reuses: `kha` + Apple account `kha` and `bhuy` + Spotify account `bhuy` already exist in `p_music` from the T4/T5 manual checks) one person + one account for each file in `data/`
 (kien, kha, cuong → Apple; viethung, bhuy → Spotify) and loads them through the T4/T5 loaders.
-No HF push, since these files are already there. It prints per-account totals vs source, the
+No HF push, since these files are already there, but **set `ingest_runs.hf_path`** to the existing HF path (`raw_am/Library_<u>.xml`, `raw_spot/Spotify_<u>`) so the account owns it and later app uploads for these people may overwrite it (otherwise T6 refuses them). It prints per-account totals vs source, the
 Apple↔Spotify `match_key` overlap per pair, and merge groups with > 2 source ids.
 
 **Acceptance criteria:**

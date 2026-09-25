@@ -172,7 +172,7 @@ Full task cards are in `tasks/todo.md`.
 - [x] T3: People + accounts (connector + app Users page)
 - [x] T4: Apple Music import
 - [x] T5: Spotify import
-- [ ] T6: Push uploads to Hugging Face
+- [x] T6: Push uploads to Hugging Face
 - [ ] T7: Backfill existing `data/` + cross-source check
 
 ### Checkpoint: Intake

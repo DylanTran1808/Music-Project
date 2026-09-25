@@ -10,7 +10,7 @@ from pathlib import Path
 import psycopg2
 import streamlit as st
 
-from common import UPLOAD_DIR, friendly, get_conn
+from common import UPLOAD_DIR, friendly, get_conn, push_to_hf
 from music_project import db
 from music_project.db.load import load_apple, load_spotify
 
@@ -67,6 +67,7 @@ else:
         else:
             os.replace(tmp.name, target)
             st.success(f"Loaded {result['items']} items, {result['plays']} plays for {acct['source_username']}.")
+            push_to_hf(conn, acct, result["run_id"], target)
 
 st.subheader("Spotify streaming history")
 spotify = [i for i, a in accounts.items() if a["source"] == "spotify"]
@@ -97,3 +98,8 @@ else:
                     shutil.copy2(f, target / f.name)
                 st.success(f"Loaded {result['events']} plays ({result['new_events']} new) "
                            f"for {acct['source_username']}.")
+                push_to_hf(conn, acct, result["run_id"], target)
+
+pending = st.session_state.get("pending_push")
+if pending and st.button(f"Retry Hugging Face push for {pending['account']['source_username']}", key="retry_push"):
+    push_to_hf(conn, pending["account"], pending["run_id"], Path(pending["local"]))

@@ -1,8 +1,11 @@
 """Headless checks of the Streamlit app pages against p_music_test. Run: uv run python tests/test_app.py"""
 
+import io
+import json
 import os
 import shutil
 import tempfile
+import zipfile
 from datetime import date
 from pathlib import Path
 
@@ -12,7 +15,7 @@ from streamlit.testing.v1 import AppTest
 
 from music_project.db import add_account, get_user, list_accounts, migrate, upsert_user
 from test_db import TEST_DB, run, scratch_db
-from test_db_load import _item, write_library
+from test_db_load import _item, _play, write_library
 
 APP = os.path.join(os.path.dirname(__file__), "..", "app", "streamlit_app.py")
 # Set before the app is first imported: app/common.py reads it once at import time.
@@ -119,8 +122,55 @@ def test_import_apple():
         assert (UPLOADS / "apple_music" / "Library_tu_am.xml").read_bytes() == xml.read_bytes()
 
 
+def test_import_spotify():
+    use_test_db()
+    with scratch_db() as conn:
+        migrate(conn)
+        upsert_user(conn, "sp")
+        add_account(conn, "sp", "spotify", "sp_sp")
+        plays = [_play("2026-01-01T10:00:00Z", "spotify:track:1", "Song", "A"),
+                 _play("2026-01-02T10:00:00Z", "spotify:track:2", "Other", "B")]
+        buf = io.BytesIO()
+        with zipfile.ZipFile(buf, "w") as z:  # the layout Spotify's export zip uses, plus junk
+            z.writestr("Spotify Extended Streaming History/Streaming_History_Audio_2026.json", json.dumps(plays))
+            z.writestr("Spotify Extended Streaming History/ReadMe.pdf", b"%PDF")
+            z.writestr("../../evil.json", json.dumps(plays))
+
+        at = AppTest.from_file(APP, default_timeout=30).run()
+        at.switch_page("pages/import_data.py").run()
+        at.selectbox(key="import_person").select("sp").run()
+        assert any("Apple Music account" in i.value for i in at.info)  # sp only has Spotify
+
+        uploader = lambda: at.get("file_uploader")[0]
+        uploader().upload("my_spotify_data.zip", buf.getvalue(), "application/zip").run()
+        at.button(key="load_spotify").click().run()
+        assert not at.exception and not at.error, (at.exception, [e.value for e in at.error])
+        assert any("2 plays" in s.value and "2 new" in s.value for s in at.success), [s.value for s in at.success]
+        staged = UPLOADS / "spotify" / "Spotify_sp_sp"
+        assert sorted(f.name for f in staged.iterdir()) == ["Streaming_History_Audio_2026.json"]
+        assert not list(UPLOADS.rglob("evil.json")) and not list(UPLOADS.rglob("ReadMe.pdf"))
+
+        # Loose JSON files work too, and only new plays are added.
+        more = plays[1:] + [_play("2026-01-03T10:00:00Z", "spotify:track:3", "New", "C")]
+        uploader().set_value(None).run()
+        uploader().upload("Streaming_History_Audio_2026_1.json", json.dumps(more).encode(), "application/json").run()
+        at.button(key="load_spotify").click().run()
+        assert any("2 plays" in s.value and "1 new" in s.value for s in at.success), [s.value for s in at.success]
+        assert run(conn, "SELECT count(*) FROM listening_events")[0][0] == 3
+        assert len(list(staged.iterdir())) == 2
+
+        # Broken JSON: error, nothing loaded or staged.
+        uploader().set_value(None).run()
+        uploader().upload("Streaming_History_Audio_2027.json", b"{not json", "application/json").run()
+        at.button(key="load_spotify").click().run()
+        assert not at.exception and at.error
+        assert run(conn, "SELECT count(*) FROM listening_events")[0][0] == 3
+        assert len(list(staged.iterdir())) == 2
+
+
 if __name__ == "__main__":
     test_users_page()
     test_import_apple()
+    test_import_spotify()
     shutil.rmtree(UPLOADS)
     print("test_app: ok")

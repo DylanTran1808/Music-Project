@@ -1,12 +1,13 @@
 """Loader checks against p_music_test with synthetic exports. Run: uv run python tests/test_db_load.py"""
 
+import json
 import plistlib
 import tempfile
 from datetime import datetime
 from pathlib import Path
 
 from music_project.db import add_account, migrate, upsert_user
-from music_project.db.load import load_apple
+from music_project.db.load import load_apple, load_spotify
 from test_db import run, scratch_db
 
 
@@ -110,6 +111,81 @@ def test_load_apple():
             pass
 
 
+def _play(ts, uri, name, artist, ms=200_000, end="trackdone", start="clickrow", **extra):
+    return {"ts": ts, "platform": "ios", "ms_played": ms, "conn_country": "VN", "ip_addr": "203.0.113.7",
+            "master_metadata_track_name": name, "master_metadata_album_artist_name": artist,
+            "master_metadata_album_album_name": "Alb", "spotify_track_uri": uri, "episode_name": None,
+            "episode_show_name": None, "spotify_episode_uri": None, "reason_start": start, "reason_end": end,
+            "shuffle": False, "skipped": end != "trackdone", "offline": False, "offline_timestamp": 1_700_000_000,
+            "incognito_mode": False, **extra}
+
+
+def write_history(folder, name, records):
+    folder.mkdir(parents=True, exist_ok=True)
+    (folder / name).write_text(json.dumps(records), encoding="utf-8")
+
+
+def test_load_spotify():
+    with tempfile.TemporaryDirectory() as tmp, scratch_db() as conn:
+        migrate(conn)
+        upsert_user(conn, "bhuy")
+        acct = add_account(conn, "bhuy", "spotify", "bhuy")
+        first = Path(tmp) / "export1"
+        song = _play("2026-01-01T10:00:00Z", "spotify:track:1", "Song", "Obito")
+        write_history(first, "Streaming_History_Audio_2026.json", [
+            song,
+            dict(song),                                                           # exact duplicate row
+            _play("2026-01-01T10:00:00Z", "spotify:track:1", "Song", "Obito", ms=100, end="fwdbtn"),  # same second
+            _play("2026-01-01T11:00:00Z", None, None, None, ms=60_000, spotify_episode_uri="spotify:episode:9",
+                  episode_name="Ep 1", episode_show_name="Pod"),
+            _play("2026-01-02T09:00:00Z", "spotify:track:2", "Song (feat. B)", "Obito"),  # same song, other URI
+        ])
+
+        result = load_spotify(conn, acct, first)
+        assert (result["events"], result["new_events"]) == (4, 4), result
+
+        assert run(conn, "SELECT kind, count(*), count(track_id) FROM listening_events GROUP BY kind ORDER BY kind") \
+            == [("music", 3, 3), ("podcast", 1, 0)]
+        assert run(conn, "SELECT count(*) FROM information_schema.columns "
+                         "WHERE table_name = 'listening_events' AND column_name LIKE 'ip%%'")[0][0] == 0
+        assert run(conn, "SELECT count(DISTINCT track_id), count(*) FROM track_external_ids WHERE source = 'spotify'") \
+            == [(1, 2)]
+        assert run(conn, "SELECT match_key FROM tracks") == [("obito|song",)]
+        assert sorted(r[0] for r in run(conn, "SELECT name FROM artists")) == ["B", "Obito"]
+        assert run(conn, "SELECT title, artist_credit FROM listening_events WHERE kind = 'podcast'") == [("Ep 1", "Pod")]
+
+        # Reloading the same export adds nothing.
+        again = load_spotify(conn, acct, first)
+        assert (again["events"], again["new_events"]) == (4, 0)
+        assert run(conn, "SELECT count(*) FROM listening_events")[0][0] == 4
+
+        # An overlapping later export only adds the plays that are new; earlier history stays.
+        second = Path(tmp) / "export2"
+        write_history(second, "Streaming_History_Audio_2026.json", [
+            _play("2026-01-02T09:00:00Z", "spotify:track:2", "Song (feat. B)", "Obito"),
+            _play("2026-01-03T09:00:00Z", "spotify:track:3", "New", "C"),
+            _play("2026-01-04T09:00:00Z", "spotify:track:4", "Zero", "D", ms=0),  # "trackdone" after 0 ms
+        ])
+        assert load_spotify(conn, acct, second)["new_events"] == 2
+        assert run(conn, "SELECT count(*) FROM listening_events")[0][0] == 6
+        # Duration is estimated from completed plays; a 0 ms estimate means unknown, not 0.
+        assert run(conn, "SELECT duration_ms FROM tracks WHERE match_key IN ('c|new', 'd|zero') ORDER BY match_key") \
+            == [(200_000,), (None,)]
+        assert run(conn, "SELECT count(*) FROM ingest_runs WHERE account_id = %s", (acct,))[0][0] == 3
+
+        # Wrong account type and empty exports are refused.
+        apple = add_account(conn, "bhuy", "apple_music", "bhuy_am")
+        empty = Path(tmp) / "empty"
+        empty.mkdir()
+        for account, folder in [(apple, first), (acct, empty)]:
+            try:
+                load_spotify(conn, account, folder)
+                raise AssertionError(f"loaded {folder} into account {account}")
+            except ValueError:
+                pass
+
+
 if __name__ == "__main__":
     test_load_apple()
+    test_load_spotify()
     print("test_db_load: ok")

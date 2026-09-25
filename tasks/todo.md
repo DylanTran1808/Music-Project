@@ -152,7 +152,9 @@ the file in `data/uploads/`, and loads it.
 
 ---
 
-## Task 5: Spotify import (schema + loader + app upload, local)
+## Task 5: Spotify import (schema + loader + app upload, local) ✅
+
+_Done 2026-09-25. Design changes: (1) Spotify loads **merge** (insert new plays, skip stored ones) instead of replacing the account's rows. A partial upload (one year's file) would otherwise wipe older history. (2) The natural key is `(account, ts, uri, ms_played, reason_start, reason_end, offline_timestamp)` with NULLS NOT DISTINCT: `(account, ts, uri)` alone would have dropped 39 real plays (a skip and the replay after it end in the same second). (3) A song's catalogue credits are the union over all its entries (applies to Apple too), so "Song (feat. B)" still credits B. (4) A 0 ms duration estimate is stored as unknown. Real data: bhuy 7,472 / viethung 18,731 events (= source after dedup), reload adds 0, 4,202 Spotify URIs, **475 tracks shared between Apple libraries and Spotify listening**. The app accepts the export .zip (only Streaming_History*.json, by basename, so no path traversal) or loose JSONs. Manual check: bhuy uploaded as a zip through the app into `p_music` (7,472 plays)._
 
 **Description:** `migrations/003_spotify.sql`: `listening_events (account_id, track_id null, kind,
 ts, ms_played, reason_start, reason_end, shuffle, skipped_fwd, platform, conn_country,
@@ -161,13 +163,13 @@ episode_name, incognito)`, unique on `(account_id, ts, coalesce(track uri, episo
 accepts a `.zip` or several `Streaming_History_*.json` files.
 
 **Acceptance criteria:**
-- [ ] Event count = source rows after `enrich_events` dedup; no `ip_addr` column exists
-- [ ] Reload is a no-op on counts; overlapping exports don't duplicate events
-- [ ] Spotify URIs land in `track_external_ids`
+- [x] Event count = source rows after `enrich_events` dedup; no `ip_addr` column exists
+- [x] Reload is a no-op on counts; overlapping exports don't duplicate events
+- [x] Spotify URIs land in `track_external_ids`
 
 **Verification:**
-- [ ] Tests pass: `tests/test_db_load.py` (synthetic history with a repeated row and a podcast)
-- [ ] Manual check: upload `data/raw_spot/Spotify_bhuy/` as a zip in the app
+- [x] Tests pass: `tests/test_db_load.py` (synthetic history with a repeated row and a podcast)
+- [x] Manual check: upload `data/raw_spot/Spotify_bhuy/` as a zip in the app
 
 **Dependencies:** T3
 
@@ -213,7 +215,7 @@ successful DB load and records `ingest_runs.hf_path`. On failure it shows the er
 
 ## Task 7: Backfill existing `data/` + cross-source check
 
-**Description:** `scripts/backfill.py` creates (or reuses: `kha` + Apple account `kha` already exist in `p_music` from the T4 manual check) one person + one account for each file in `data/`
+**Description:** `scripts/backfill.py` creates (or reuses: `kha` + Apple account `kha` and `bhuy` + Spotify account `bhuy` already exist in `p_music` from the T4/T5 manual checks) one person + one account for each file in `data/`
 (kien, kha, cuong → Apple; viethung, bhuy → Spotify) and loads them through the T4/T5 loaders.
 No HF push, since these files are already there. It prints per-account totals vs source, the
 Apple↔Spotify `match_key` overlap per pair, and merge groups with > 2 source ids.

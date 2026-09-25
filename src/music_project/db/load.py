@@ -8,6 +8,7 @@ so loading the same export twice changes nothing.
 """
 
 import hashlib
+import json
 import plistlib
 from pathlib import Path
 
@@ -15,6 +16,7 @@ import pandas as pd
 from psycopg2.extras import execute_values
 
 from music_project.analysis.apple_insights import load_library
+from music_project.analysis.spotify_insights import build_tracks, enrich_events
 
 
 def _v(x):
@@ -31,6 +33,19 @@ def _check_account(cur, account_id, source):
     row = cur.fetchone()
     if row is None or row[0] != source:
         raise ValueError(f"account {account_id} is not a {source} account")
+
+
+def _canonical(t: pd.DataFrame, plays: str) -> pd.DataFrame:
+    """
+    One row per track_key: the unversioned, most-played entry names the song, and its
+    credits are the union over all entries (so "Song (feat. B)" still credits B).
+    """
+    canon = (t.assign(_versioned=t["version_tags"].str.len() > 0)
+              .sort_values(["_versioned", plays], ascending=[True, False])
+              .drop_duplicates("track_key"))
+    everyone = t.groupby("track_key")["artists"].agg(lambda s: [a for lst in s for a in lst])
+    return canon.assign(artists=[list(dict.fromkeys(own + everyone[k]))
+                                 for k, own in zip(canon["track_key"], canon["artists"])])
 
 
 def upsert_catalog(cur, tracks: pd.DataFrame) -> dict:
@@ -67,16 +82,10 @@ def load_apple(conn, account_id: int, xml_path) -> dict:
     lib = load_library(str(account_id), path=str(xml_path))
     t = lib.tracks
 
-    # Catalogue: one row per song; the unversioned, most-played item names it.
-    canon = (t.assign(_versioned=t["version_tags"].str.len() > 0)
-              .sort_values(["_versioned", "play_count"], ascending=[True, False])
-              .drop_duplicates("track_key"))
-    catalog = pd.DataFrame({
-        "match_key": canon["track_key"], "title": canon["name"].fillna(""), "album": canon["album"],
-        "duration_ms": pd.to_numeric(canon["total_time_ms"], errors="coerce").round().astype("Int64"),
-        "genre": canon["genre"], "release_year": canon["year"], "lang": canon["script_lang"],
-        "artists": canon["artists"],
-    })
+    canon = _canonical(t, "play_count")
+    catalog = _catalog_rows(canon, canon["name"],
+                            pd.to_numeric(canon["total_time_ms"], errors="coerce").round().astype("Int64"),
+                            canon["genre"], canon["year"])
 
     with conn, conn.cursor() as cur:
         _check_account(cur, account_id, "apple_music")
@@ -114,3 +123,68 @@ def load_apple(conn, account_id: int, xml_path) -> dict:
         cur.execute("INSERT INTO ingest_runs (account_id, file_hash, row_count) VALUES (%s, %s, %s) RETURNING id",
                     (account_id, hashlib.sha256(xml_path.read_bytes()).hexdigest(), len(t)))
         return {"run_id": cur.fetchone()[0], "items": len(t), "plays": int(t["play_count"].sum())}
+
+
+def _catalog_rows(t: pd.DataFrame, title, duration_ms, genre, release_year) -> pd.DataFrame:
+    """Catalogue rows for upsert_catalog from a _canonical() frame."""
+    return pd.DataFrame({
+        "match_key": t["track_key"], "title": title.fillna(""), "album": t["album"],
+        "duration_ms": duration_ms, "genre": genre, "release_year": release_year,
+        "lang": t["script_lang"], "artists": t["artists"],
+    })
+
+
+def load_spotify(conn, account_id: int, folder) -> dict:
+    """
+    Merges a Spotify extended streaming history export (a folder of Streaming_History_*.json)
+    into a spotify account; plays already stored are skipped. Returns {run_id, events, new_events}.
+    """
+    files = sorted(Path(folder).glob("*.json"))
+    records = []
+    for f in files:
+        with open(f, encoding="utf-8") as fh:
+            records += json.load(fh)
+    if not records:
+        raise ValueError("no plays found; upload the Streaming_History_*.json files from a Spotify export")
+    e = enrich_events(pd.DataFrame(records))  # drops ip_addr and exact duplicate rows
+    t = build_tracks(e)
+
+    with conn, conn.cursor() as cur:
+        _check_account(cur, account_id, "spotify")
+        key_of = {}  # event track_id (URI, or "key:..." without one) -> db track id
+        if len(t):
+            canon = _canonical(t, "plays")
+            # Duration is estimated from completed plays; Spotify logs some "trackdone" plays at 0 ms.
+            duration = (canon["duration_min"] * 60_000).round().astype("Int64")
+            db_id = upsert_catalog(cur, _catalog_rows(canon, canon["name"], duration.where(duration > 0), None, None))
+            key_of = {tid: db_id[k] for tid, k in zip(t["track_id"], t["track_key"])}
+            uris = [(tid, key_of[tid]) for tid in t["track_id"] if tid.startswith("spotify:track:")]
+            execute_values(cur, "INSERT INTO track_external_ids (source, external_id, track_id) VALUES %s "
+                                "ON CONFLICT DO NOTHING", [("spotify", u, i) for u, i in uris])
+
+        col = lambda name: e[name] if name in e.columns else pd.Series(None, index=e.index)
+        uri = col("spotify_track_uri").fillna(col("spotify_episode_uri")).fillna(col("audiobook_uri"))
+        title = e["name"].fillna(col("episode_name")).fillna(col("audiobook_title"))
+        credit = e["artist"].fillna(col("episode_show_name"))
+        offline_ts = pd.to_numeric(col("offline_timestamp"), errors="coerce")
+        rows = [
+            (account_id, key_of.get(tid) if kind == "music" else None, kind, ts, int(ms), _v(u), _v(ti), _v(cr),
+             _v(al), rs, re_, bool(sh), bool(off), bool(inc), None if pd.isna(ot) else int(ot), _v(pl), _v(cc))
+            for tid, kind, ts, ms, u, ti, cr, al, rs, re_, sh, off, inc, ot, pl, cc in zip(
+                e["track_id"], e["kind"], e["ts"], e["ms_played"], uri, title, credit, e["album"],
+                e["reason_start"], e["reason_end"], e["shuffle"], e["offline"], e["incognito_mode"],
+                offline_ts, e["platform"], e["conn_country"])
+        ]
+        inserted = execute_values(cur, """
+            INSERT INTO listening_events (account_id, track_id, kind, ts, ms_played, spotify_uri, title,
+                                          artist_credit, album, reason_start, reason_end, shuffle, offline,
+                                          incognito, offline_timestamp, platform, conn_country)
+            VALUES %s ON CONFLICT ON CONSTRAINT listening_events_natural_key DO NOTHING RETURNING id""",
+            rows, fetch=True, page_size=1000)
+
+        digest = hashlib.sha256()
+        for f in files:
+            digest.update(f.name.encode() + f.read_bytes())
+        cur.execute("INSERT INTO ingest_runs (account_id, file_hash, row_count) VALUES (%s, %s, %s) RETURNING id",
+                    (account_id, digest.hexdigest(), len(e)))
+        return {"run_id": cur.fetchone()[0], "events": len(e), "new_events": len(inserted)}

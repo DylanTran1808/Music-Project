@@ -8,7 +8,7 @@ user options during review; nothing found here is applied automatically.
                              gender, country (ISO alpha-2), birth_date, birth_place, end_date, mb_id
 
 Search is noisy ("Wren" finds a town, a bird and a video game), so a hit is kept only if it
-has a MusicBrainz id, a musical description ("singer", "band", ...), or a musical type.
+has a MusicBrainz id, a musical description ("singer", "band", "boy group", ...), or a musical type.
 """
 
 import re
@@ -20,8 +20,10 @@ from music_project.connectors.musicbrainz import user_agent
 API = "https://www.wikidata.org/w/api.php"
 GENDERS = {"Q6581097": "male", "Q6581072": "female", "Q48270": "non_binary", "Q1097630": "other",
            "Q2449503": "male", "Q1052281": "female"}  # male, female, non-binary, intersex, trans man, trans woman
-MUSICAL = re.compile(r"sing|rapper|music|band|group|composer|songwriter|\bdj\b|producer|vocalist|idol|"
-                     r"\bduo\b|\btrio\b|orchestra|choir|artist", re.I)
+# Whole words only: "sing" would match "single" (a song), a bare "group" matches "group of organisms".
+MUSICAL = re.compile(r"\b(singers?|rappers?|musicians?|music|musical|bands?|composers?|songwriters?|djs?|"
+                     r"producers?|vocalists?|idols?|duos?|trios?|orchestras?|choirs?|"
+                     r"(boy|girl|pop|rock|idol|vocal|hip hop|k-pop) groups?)\b", re.I)
 
 
 def _get(**params) -> dict:
@@ -77,9 +79,6 @@ def parse_candidates(search: list, entities: dict, refs: dict) -> list:
         ref_label = lambda q: _label(refs.get(q, {}))
         instance_of = [ref_label(q) or q for q in _item_ids(e, "P31")]
         mb_ids = _values(e, "P434")
-        description = hit.get("description") or ""
-        if not (mb_ids or MUSICAL.search(description) or any(MUSICAL.search(t) for t in instance_of)):
-            continue
         countries = [iso for q in _item_ids(e, "P27") for iso in _values(refs.get(q, {}), "P297")]
         genders = [GENDERS[q] for q in _item_ids(e, "P21") if q in GENDERS]
         places = [ref_label(q) for q in _item_ids(e, "P19")]
@@ -92,4 +91,10 @@ def parse_candidates(search: list, entities: dict, refs: dict) -> list:
             "end_date": _time(e, "P570") or _time(e, "P576"),    # died, or dissolved
             "mb_id": mb_ids[0] if mb_ids else None,
         })
-    return out
+    return [c for c in out if is_musical(c)]
+
+
+def is_musical(c: dict) -> bool:
+    """A candidate worth showing: has a MusicBrainz id, or a musical description or type."""
+    return bool(c.get("mb_id") or MUSICAL.search(c.get("description") or "")
+                or any(MUSICAL.search(t or "") for t in c.get("instance_of", [])))

@@ -10,7 +10,7 @@ from pathlib import Path
 
 from music_project.connectors import musicbrainz, wikidata
 from music_project.connectors.musicbrainz import artist_fields, pick_match, release_summary
-from music_project.connectors.wikidata import parse_candidates
+from music_project.connectors.wikidata import is_musical, parse_candidates
 from music_project.db import migrate
 from music_project.db.artists import coverage, enrich_artists, review_items, set_artist_demographics
 from test_db import run, scratch_db
@@ -69,6 +69,13 @@ def test_wikidata_candidates():
                     "birth_place": "Đắk Lắk", "end_date": None, "mb_id": None}], got
     w = FX["wikidata"]["Wren"]
     assert parse_candidates(w["search"], w["entities"], w["refs"]) == []  # a town, birds, a video game
+    # Real descriptions from the first full run: only the boy group is a musician.
+    keep = lambda desc, types=(): is_musical({"description": desc, "instance_of": list(types), "mb_id": None})
+    assert keep("Vietnamese boy group") and keep("Japanese music composer") and keep("singer-songwriter")
+    assert keep("", ["musical group"]) and keep("Vietnamese singer, rapper and dancer (born 1984)")
+    assert not keep("group of organisms which mostly grow in water and can perform oxygenic photosynthesis")
+    assert not keep("any single member of Homo sapiens, unique extant species of the genus Homo")
+    assert not keep("single") and not keep("2022 single by Monstar") and not keep("family name")
 
 
 def test_enrich_artists():

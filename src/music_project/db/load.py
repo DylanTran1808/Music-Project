@@ -17,6 +17,8 @@ from psycopg2.extras import execute_values
 
 from music_project.analysis.apple_insights import load_library
 from music_project.analysis.spotify_insights import build_tracks, enrich_events
+from music_project.connectors.upload import apple_path, spotify_path
+from music_project.db import set_hf_path, upsert_user
 
 
 def _v(x):
@@ -188,3 +190,47 @@ def load_spotify(conn, account_id: int, folder) -> dict:
         cur.execute("INSERT INTO ingest_runs (account_id, file_hash, row_count) VALUES (%s, %s, %s) RETURNING id",
                     (account_id, digest.hexdigest(), len(e)))
         return {"run_id": cur.fetchone()[0], "events": len(e), "new_events": len(inserted)}
+
+
+def _account(cur, handle: str, source: str, username: str) -> int:
+    """The account for (source, username), created for person `handle` if it doesn't exist yet."""
+    cur.execute("SELECT id FROM user_accounts WHERE source = %s AND source_username = %s", (source, username))
+    row = cur.fetchone()
+    if row is None:
+        cur.execute("""INSERT INTO user_accounts (user_id, source, source_username)
+                       SELECT id, %s, %s FROM users WHERE handle = %s RETURNING id""", (source, username, handle))
+        row = cur.fetchone()
+    return row[0]
+
+
+def load_data_dir(conn, data_dir, hf_files=None) -> list:
+    """
+    Loads every export in a folder laid out like the HF dataset:
+        raw_am/Library_<u>.xml, raw_spot/Spotify_<u>/*.json
+    Each <u> becomes person + account <u> unless that account already exists (then it's reused and
+    its person's demographics are left alone). Nothing is pushed; runs whose path is in `hf_files`
+    (the dataset's file list) get hf_path set, so later app uploads for that account may overwrite it.
+    Returns one dict per export: source, username, account_id, path, run_id, hf_path, plus the loader's counts.
+    """
+    root = Path(data_dir)
+    exports = [("apple_music", f.stem.removeprefix("Library_"), f, apple_path(f.stem.removeprefix("Library_")),
+                load_apple) for f in sorted((root / "raw_am").glob("Library_*.xml"))]
+    exports += [("spotify", d.name.removeprefix("Spotify_"), d, spotify_path(d.name.removeprefix("Spotify_")),
+                 load_spotify) for d in sorted((root / "raw_spot").glob("Spotify_*")) if d.is_dir()]
+    on_hf = set(hf_files or ())
+    results = []
+    for source, username, path, hf_path, loader in exports:
+        with conn, conn.cursor() as cur:
+            cur.execute("SELECT 1 FROM user_accounts WHERE source = %s AND source_username = %s", (source, username))
+            known = cur.fetchone() is not None
+        if not known:
+            upsert_user(conn, username)  # no fields: an existing person's demographics stay as they are
+        with conn, conn.cursor() as cur:
+            account_id = _account(cur, username, source, username)
+        result = loader(conn, account_id, path)
+        owned = hf_path in on_hf or any(f.startswith(hf_path + "/") for f in on_hf)
+        if owned:
+            set_hf_path(conn, result["run_id"], hf_path)
+        results.append({"source": source, "username": username, "account_id": account_id, "path": path,
+                        "hf_path": hf_path if owned else None, **result})
+    return results

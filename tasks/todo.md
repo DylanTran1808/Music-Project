@@ -215,7 +215,9 @@ successful DB load and records `ingest_runs.hf_path`. On failure it shows the er
 
 ---
 
-## Task 7: Backfill existing `data/` + cross-source check
+## Task 7: Backfill existing `data/` + cross-source check ✅
+
+_Done 2026-09-26. Core is `db.load.load_data_dir(conn, dir, hf_files)`, which works on any folder laid out like the HF dataset, so teammates can rebuild a local DB from an HF snapshot. `scripts/backfill.py` is the CLI + report. Result in `p_music`: all 5 accounts match the source files (checked independently of the loaders: summed plist Play Count; distinct raw Spotify records minus PII fields); all 5 own their HF paths; the second run's output is identical. Shared tracks: kien~viethung 305, bhuy~viethung 397, bhuy~kien 256. 206 songs merged from > 2 source ids; mostly one song on several Spotify releases, but `ariana grande|intro` is a likely over-merge (different songs titled "Intro"; the known match_key risk). `p_music` also has 2 people without accounts (`whatisthis`, `whoisthis2`, created in the app before T4's check), left as they are._
 
 **Description:** `scripts/backfill.py` creates (or reuses: `kha` + Apple account `kha` and `bhuy` + Spotify account `bhuy` already exist in `p_music` from the T4/T5 manual checks) one person + one account for each file in `data/`
 (kien, kha, cuong → Apple; viethung, bhuy → Spotify) and loads them through the T4/T5 loaders.
@@ -223,12 +225,12 @@ No HF push, since these files are already there, but **set `ingest_runs.hf_path`
 Apple↔Spotify `match_key` overlap per pair, and merge groups with > 2 source ids.
 
 **Acceptance criteria:**
-- [ ] 5 people, 5 accounts; every printed total equals the source
-- [ ] Second run: identical counts; existing demographics are left untouched
-- [ ] Overlap report printed
+- [x] 5 people, 5 accounts; every printed total equals the source
+- [x] Second run: identical counts; existing demographics are left untouched
+- [x] Overlap report printed
 
 **Verification:**
-- [ ] Manual check: run twice, diff the output
+- [x] Manual check: run twice, diff the output
 
 **Dependencies:** T4, T5
 

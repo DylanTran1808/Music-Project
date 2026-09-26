@@ -6,8 +6,8 @@ import tempfile
 from datetime import datetime
 from pathlib import Path
 
-from music_project.db import add_account, migrate, upsert_user
-from music_project.db.load import load_apple, load_spotify
+from music_project.db import add_account, get_user, migrate, upsert_user
+from music_project.db.load import load_apple, load_data_dir, load_spotify
 from test_db import run, scratch_db
 
 
@@ -185,7 +185,42 @@ def test_load_spotify():
                 pass
 
 
+def test_load_data_dir():
+    """A folder laid out like the HF dataset (raw_am/, raw_spot/) loads every person in it."""
+    with tempfile.TemporaryDirectory() as tmp, scratch_db() as conn:
+        migrate(conn)
+        root = Path(tmp)
+        (root / "raw_am").mkdir()
+        write_library(root / "raw_am" / "Library_kien.xml", [_item(1, "P1", "Hit", "A", plays=3)])
+        write_history(root / "raw_spot" / "Spotify_bhuy", "Streaming_History_Audio_2026.json",
+                      [_play("2026-01-01T10:00:00Z", "spotify:track:1", "Hit", "A")])
+        (root / "raw_spot" / ".DS_Store").write_bytes(b"")  # junk next to the user folders
+
+        # bhuy already exists (entered in the app) with demographics that must survive.
+        upsert_user(conn, "bhuy", city="Hanoi", gender="male")
+        existing = add_account(conn, "bhuy", "spotify", "bhuy")
+
+        hf_files = {"raw_am/Library_kien.xml"}  # only kien's file is on HF
+        result = load_data_dir(conn, root, hf_files)
+        assert sorted((r["source"], r["username"], r["hf_path"]) for r in result) == [
+            ("apple_music", "kien", "raw_am/Library_kien.xml"), ("spotify", "bhuy", None)]
+        assert next(r["account_id"] for r in result if r["username"] == "bhuy") == existing
+        assert {r["username"]: r["path"] for r in result} == {
+            "kien": root / "raw_am" / "Library_kien.xml", "bhuy": root / "raw_spot" / "Spotify_bhuy"}
+        assert run(conn, "SELECT count(*) FROM users")[0][0] == 2
+        assert run(conn, "SELECT count(*) FROM user_accounts")[0][0] == 2
+        assert (get_user(conn, "bhuy")["city"], get_user(conn, "bhuy")["gender"]) == ("Hanoi", "male")
+        assert run(conn, "SELECT hf_path FROM ingest_runs WHERE hf_path IS NOT NULL") == [("raw_am/Library_kien.xml",)]
+
+        # Second run: same data, same people.
+        before = counts(conn), run(conn, "SELECT count(*) FROM listening_events")[0][0]
+        load_data_dir(conn, root, hf_files)
+        assert (counts(conn), run(conn, "SELECT count(*) FROM listening_events")[0][0]) == before
+        assert run(conn, "SELECT count(*) FROM users")[0][0] == 2
+
+
 if __name__ == "__main__":
     test_load_apple()
     test_load_spotify()
+    test_load_data_dir()
     print("test_db_load: ok")

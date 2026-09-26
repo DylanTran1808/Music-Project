@@ -305,8 +305,7 @@ stored as candidates, never applied.
 - `enrich_artists(conn, limit=None)`: looks up artists where `fetched_at IS NULL` and never
   touches `manual` rows.
 
-Also: a `scripts/enrich_artists.py` CLI; the app runs `enrich_artists` after an upload for
-the new artists only, with a progress bar; `requests` is declared in `pyproject.toml`.
+Also: a `scripts/enrich_artists.py` CLI and `requests` declared in `pyproject.toml`. _Changed 2026-09-26:_ the in-app lookup moved to T10's Artists page as a "Look up N new artists" button, because a new person's upload can bring ~1,000 artists (~3 s each), too long to run inside one page request.
 
 **Acceptance criteria:**
 - [ ] `pick_match`: exact unique hit → `auto`; two close hits with no album overlap → `ambiguous`; album overlap breaks a tie; no hits → `not_found`

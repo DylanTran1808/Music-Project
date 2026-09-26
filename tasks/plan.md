@@ -116,7 +116,7 @@ Defects in the current `P-Music` that the new schema has to fix:
   - The User-Agent contact comes from `MB_CONTACT` in `.env`. MusicBrainz requires one, and
     no personal email is hardcoded.
   - Uses `requests`: already used by `itunes_preview.py`, now declared in `pyproject.toml`.
-- **Canonical track identity = `tracks.match_key`** (primary artist + base title, casefolded).
+- **Track identity is two-level** (T7b, 2026-09-26). A `tracks` row is one **recording**, keyed by `match_key` = primary artist | base title | audio-changing version tags (remix, slowed, sped up, live, acoustic, extended, …). Audio embeddings will attach to recordings. `song_key` (artist | base title) groups the versions of a song, for taste and cross-service overlap. "feat. X", "OST" and "Remastered" don't change the recording. Before T7b, versions were merged into one row; the user flagged that this would corrupt audio analysis.
   Both insight modules already compute this as `track_key`. Source IDs go in `track_external_ids`.
 - **Credits in `track_artists (track_id, artist_id, position)`**, split with the existing
   `split_artists`. Without this, collab strings would each be looked up as one "artist".
@@ -148,7 +148,8 @@ T1 connection + migration runner
          └─ T5 Spotify: schema + loader + app upload (local)
                  ├─ T6 HF push from app
                  └─ T7 backfill data/ + cross-source check
-                      └─ T8 artist demographics (MusicBrainz) + app hook
+                      └─ T7b recording-level tracks
+                           └─ T8 artist demographics (MusicBrainz) + app hook
                            └─ T9 query tools + user_track_stats view
                                 └─ T10 app Explore + Artists pages
                                      └─ T11 drop old DBs + docs
@@ -174,6 +175,7 @@ Full task cards are in `tasks/todo.md`.
 - [x] T5: Spotify import
 - [x] T6: Push uploads to Hugging Face
 - [x] T7: Backfill existing `data/` + cross-source check
+- [x] T7b: Recording-level tracks (versions apart, `song_key` groups them)
 
 ### Checkpoint: Intake
 - [ ] In the app: new person → demographics → accounts → uploads → DB rows + HF files

@@ -47,18 +47,26 @@ def test_load_apple():
             _item(11, "P2", "Hit", "A", plays=5),                       # same song added twice
             _item(12, "P3", "Hit (Remix)", "A", plays=2),               # a version of it
             _item(13, "P4", "Other", "D", skips=3, **{"Playlist Only": True}),
+            _item(14, "P5", "Hit - From X Soundtrack", "A", plays=1),   # a label, same recording
+            _item(15, "P6", "Hit (Slowed + Reverb)", "A", plays=1),     # different audio
+            _item(16, "P7", "Hit (Extended Mix)", "A", plays=1),        # different audio
         ], [{"Name": "Mine", "Playlist ID": 2, "Playlist Persistent ID": "PL1",
              "Playlist Items": [{"Track ID": 13}, {"Track ID": 10}]}])
 
         result = load_apple(conn, acct, xml)
         run_id = result["run_id"]
-        assert (result["items"], result["plays"]) == (4, 17)
+        assert (result["items"], result["plays"]) == (7, 20)
 
-        # Every item kept (no overwrite), all pointing at one shared track per song.
-        assert run(conn, "SELECT sum(play_count), count(*) FROM library_items")[0] == (17, 4)
-        assert run(conn, "SELECT count(DISTINCT track_id) FROM library_items")[0][0] == 2
+        # Every item kept (no overwrite). One track row per recording: versions that change the
+        # audio are separate recordings, grouped into one song by song_key.
+        assert run(conn, "SELECT sum(play_count), count(*) FROM library_items")[0] == (20, 7)
+        assert run(conn, "SELECT match_key, song_key FROM tracks ORDER BY match_key") == [
+            ("a|hit", "a|hit"), ("a|hit|v:extended", "a|hit"), ("a|hit|v:remix", "a|hit"),
+            ("a|hit|v:reverb+slowed", "a|hit"), ("d|other", "d|other")]
+        assert run(conn, """SELECT array_agg(i.apple_persistent_id ORDER BY i.apple_persistent_id) FROM library_items i
+                            JOIN tracks t ON t.id = i.track_id WHERE t.match_key = 'a|hit'""") == [(["P1", "P2", "P5"],)]
         assert run(conn, """SELECT t.match_key, i.version_tags FROM library_items i JOIN tracks t ON t.id = i.track_id
-                            WHERE i.apple_persistent_id = 'P3'""") == [("a|hit", ["remix"])]
+                            WHERE i.apple_persistent_id = 'P3'""") == [("a|hit|v:remix", ["remix"])]
         assert run(conn, "SELECT loved, playlist_only, skip_count FROM library_items WHERE apple_persistent_id IN ('P1', 'P4')"
                          " ORDER BY apple_persistent_id") == [(True, False, 0), (False, True, 3)]
 
@@ -72,10 +80,10 @@ def test_load_apple():
         assert run(conn, """SELECT p.name, p.is_user_curated, array_agg(i.apple_persistent_id ORDER BY pt.position)
                             FROM playlists p JOIN playlist_tracks pt ON pt.playlist_id = p.id
                             JOIN library_items i ON i.id = pt.library_item_id GROUP BY p.id ORDER BY p.name""") \
-            == [("Library", False, ["P1", "P2", "P3", "P4"]), ("Mine", True, ["P4", "P1"])]
+            == [("Library", False, ["P1", "P2", "P3", "P4", "P5", "P6", "P7"]), ("Mine", True, ["P4", "P1"])]
 
         assert run(conn, "SELECT account_id, row_count, length(file_hash) FROM ingest_runs WHERE id = %s",
-                   (run_id,)) == [(acct, 4, 64)]
+                   (run_id,)) == [(acct, 7, 64)]
 
         # Reloading the same file changes nothing but the ingest log.
         before = counts(conn)
@@ -90,7 +98,7 @@ def test_load_apple():
         write_library(xml2, [_item(1, "Q1", "HIT", "a", plays=4)])
         load_apple(conn, acct2, xml2)
         assert run(conn, "SELECT count(*) FROM tracks")[0][0] == before["tracks"]
-        assert run(conn, "SELECT count(*) FROM library_items")[0][0] == 5
+        assert run(conn, "SELECT count(*) FROM library_items")[0][0] == 8
 
         # An export with no tracks is refused instead of wiping the previous load.
         empty = Path(tmp) / "empty.xml"
@@ -165,9 +173,12 @@ def test_load_spotify():
             _play("2026-01-02T09:00:00Z", "spotify:track:2", "Song (feat. B)", "Obito"),
             _play("2026-01-03T09:00:00Z", "spotify:track:3", "New", "C"),
             _play("2026-01-04T09:00:00Z", "spotify:track:4", "Zero", "D", ms=0),  # "trackdone" after 0 ms
+            _play("2026-01-05T09:00:00Z", "spotify:track:5", "Song (Sped Up)", "Obito"),  # another recording
         ])
-        assert load_spotify(conn, acct, second)["new_events"] == 2
-        assert run(conn, "SELECT count(*) FROM listening_events")[0][0] == 6
+        assert load_spotify(conn, acct, second)["new_events"] == 3
+        assert run(conn, "SELECT count(*) FROM listening_events")[0][0] == 7
+        assert run(conn, "SELECT match_key FROM tracks WHERE song_key = 'obito|song' ORDER BY 1") \
+            == [("obito|song",), ("obito|song|v:sped_up",)]
         # Duration is estimated from completed plays; a 0 ms estimate means unknown, not 0.
         assert run(conn, "SELECT duration_ms FROM tracks WHERE match_key IN ('c|new', 'd|zero') ORDER BY match_key") \
             == [(200_000,), (None,)]
@@ -211,6 +222,8 @@ def test_load_data_dir():
         assert run(conn, "SELECT count(*) FROM user_accounts")[0][0] == 2
         assert (get_user(conn, "bhuy")["city"], get_user(conn, "bhuy")["gender"]) == ("Hanoi", "male")
         assert run(conn, "SELECT hf_path FROM ingest_runs WHERE hf_path IS NOT NULL") == [("raw_am/Library_kien.xml",)]
+        # The same original on Apple (kien) and Spotify (bhuy) is one recording.
+        assert run(conn, "SELECT match_key FROM tracks") == [("a|hit",)]
 
         # Second run: same data, same people.
         before = counts(conn), run(conn, "SELECT count(*) FROM listening_events")[0][0]

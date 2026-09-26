@@ -37,24 +37,34 @@ def _check_account(cur, account_id, source):
         raise ValueError(f"account {account_id} is not a {source} account")
 
 
+# Version tags that don't change the audio: a soundtrack label, or the same performance remastered.
+NOT_AUDIO_TAGS = {"ost", "remaster"}
+
+
+def recording_key(song_key: str, tags) -> str:
+    """song_key plus the audio-changing version tags: "a|hit" -> "a|hit|v:reverb+slowed"."""
+    audio = sorted(set(tags) - NOT_AUDIO_TAGS)
+    return f"{song_key}|v:{'+'.join(audio)}" if audio else song_key
+
+
 def _canonical(t: pd.DataFrame, plays: str) -> pd.DataFrame:
     """
-    One row per track_key: the unversioned, most-played entry names the song, and its
-    credits are the union over all entries (so "Song (feat. B)" still credits B).
+    One row per recording (t["recording_key"]): the unversioned, most-played entry names it,
+    and its credits are the union over all entries (so "Song (feat. B)" still credits B).
     """
     canon = (t.assign(_versioned=t["version_tags"].str.len() > 0)
               .sort_values(["_versioned", plays], ascending=[True, False])
-              .drop_duplicates("track_key"))
-    everyone = t.groupby("track_key")["artists"].agg(lambda s: [a for lst in s for a in lst])
+              .drop_duplicates("recording_key"))
+    everyone = t.groupby("recording_key")["artists"].agg(lambda s: [a for lst in s for a in lst])
     return canon.assign(artists=[list(dict.fromkeys(own + everyone[k]))
-                                 for k, own in zip(canon["track_key"], canon["artists"])])
+                                 for k, own in zip(canon["recording_key"], canon["artists"])])
 
 
 def upsert_catalog(cur, tracks: pd.DataFrame) -> dict:
     """
     Inserts missing artists, tracks and credits; returns {match_key: track_id}.
-    `tracks`: one row per match_key with title, album, duration_ms, genre, release_year,
-    lang, artists (ordered list). Existing tracks keep their metadata and credits.
+    `tracks`: one row per recording (match_key) with song_key, title, album, duration_ms, genre,
+    release_year, lang, artists (ordered list). Existing tracks keep their metadata and credits.
     """
     names = list(dict.fromkeys(a for lst in tracks["artists"] for a in lst))
     execute_values(cur, "INSERT INTO artists (name) VALUES %s ON CONFLICT DO NOTHING", [(n,) for n in names])
@@ -62,7 +72,7 @@ def upsert_catalog(cur, tracks: pd.DataFrame) -> dict:
     cur.execute("SELECT x, a.id FROM unnest(%s::text[]) x JOIN artists a ON lower(a.name) = lower(x)", (names,))
     artist_id = dict(cur.fetchall())
 
-    cols = ["match_key", "title", "album", "duration_ms", "genre", "release_year", "lang"]
+    cols = ["match_key", "song_key", "title", "album", "duration_ms", "genre", "release_year", "lang"]
     execute_values(cur, f"INSERT INTO tracks ({', '.join(cols)}) VALUES %s ON CONFLICT (match_key) DO NOTHING",
                    [tuple(_v(r[c]) for c in cols) for _, r in tracks.iterrows()])
     cur.execute("SELECT match_key, id FROM tracks WHERE match_key = ANY(%s)", (list(tracks["match_key"]),))
@@ -83,6 +93,7 @@ def load_apple(conn, account_id: int, xml_path) -> dict:
             raise ValueError("no tracks in this file; is it an Apple Music Library.xml export?")
     lib = load_library(str(account_id), path=str(xml_path))
     t = lib.tracks
+    t["recording_key"] = [recording_key(k, tags) for k, tags in zip(t["track_key"], t["version_tags"])]
 
     canon = _canonical(t, "play_count")
     catalog = _catalog_rows(canon, canon["name"],
@@ -101,7 +112,7 @@ def load_apple(conn, account_id: int, xml_path) -> dict:
                                        play_count, skip_count, loved, playlist_only, date_added, last_played,
                                        last_skipped, version_tags)
             VALUES %s RETURNING apple_persistent_id, id""", [
-            (account_id, track_id[r.track_key], r.persistent_id, _v(r.name), _v(r.artist), _v(r.album),
+            (account_id, track_id[r.recording_key], r.persistent_id, _v(r.name), _v(r.artist), _v(r.album),
              int(r.play_count), int(r.skip_count), bool(r.is_loved), bool(r.playlist_only),
              _v(r.date_added), _v(r.play_date_utc), _v(r.skip_date), list(r.version_tags))
             for r in t.itertuples()], fetch=True)
@@ -130,7 +141,8 @@ def load_apple(conn, account_id: int, xml_path) -> dict:
 def _catalog_rows(t: pd.DataFrame, title, duration_ms, genre, release_year) -> pd.DataFrame:
     """Catalogue rows for upsert_catalog from a _canonical() frame."""
     return pd.DataFrame({
-        "match_key": t["track_key"], "title": title.fillna(""), "album": t["album"],
+        "match_key": t["recording_key"], "song_key": t["track_key"], "title": title.fillna(""),
+        "album": t["album"],
         "duration_ms": duration_ms, "genre": genre, "release_year": release_year,
         "lang": t["script_lang"], "artists": t["artists"],
     })
@@ -150,6 +162,8 @@ def load_spotify(conn, account_id: int, folder) -> dict:
         raise ValueError("no plays found; upload the Streaming_History_*.json files from a Spotify export")
     e = enrich_events(pd.DataFrame(records))  # drops ip_addr and exact duplicate rows
     t = build_tracks(e)
+    if len(t):
+        t["recording_key"] = [recording_key(k, tags) for k, tags in zip(t["track_key"], t["version_tags"])]
 
     with conn, conn.cursor() as cur:
         _check_account(cur, account_id, "spotify")
@@ -159,7 +173,7 @@ def load_spotify(conn, account_id: int, folder) -> dict:
             # Duration is estimated from completed plays; Spotify logs some "trackdone" plays at 0 ms.
             duration = (canon["duration_min"] * 60_000).round().astype("Int64")
             db_id = upsert_catalog(cur, _catalog_rows(canon, canon["name"], duration.where(duration > 0), None, None))
-            key_of = {tid: db_id[k] for tid, k in zip(t["track_id"], t["track_key"])}
+            key_of = {tid: db_id[k] for tid, k in zip(t["track_id"], t["recording_key"])}
             uris = [(tid, key_of[tid]) for tid in t["track_id"] if tid.startswith("spotify:track:")]
             execute_values(cur, "INSERT INTO track_external_ids (source, external_id, track_id) VALUES %s "
                                 "ON CONFLICT DO NOTHING", [("spotify", u, i) for u, i in uris])

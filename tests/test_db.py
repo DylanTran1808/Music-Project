@@ -132,11 +132,13 @@ def test_core_schema():
         assert rejected(conn, "DELETE FROM users WHERE id = %s", (uid,))                  # has accounts
 
         # Tracks, credits, external ids.
-        tid = run(conn, "INSERT INTO tracks (match_key, title) VALUES ('obito|xa xoi', 'Xa Xôi') RETURNING id")[0][0]
+        tid = run(conn, "INSERT INTO tracks (match_key, song_key, title) VALUES ('obito|xa xoi', 'obito|xa xoi', 'Xa Xôi') "
+                        "RETURNING id")[0][0]
         a1 = run(conn, "INSERT INTO artists (name) VALUES ('Obito') RETURNING id")[0][0]
         a2 = run(conn, "INSERT INTO artists (name) VALUES ('Shiki') RETURNING id")[0][0]
         assert rejected(conn, "INSERT INTO artists (name) VALUES ('OBITO')")              # case-insensitive unique
-        assert rejected(conn, "INSERT INTO tracks (match_key, title) VALUES ('obito|xa xoi', 'dup')")
+        assert rejected(conn, "INSERT INTO tracks (match_key, song_key, title) VALUES ('obito|xa xoi', 'obito|xa xoi', 'dup')")
+        run(conn, "INSERT INTO tracks (match_key, song_key, title) VALUES ('obito|xa xoi|v:remix', 'obito|xa xoi', 'Xa Xôi (Remix)')")
         run(conn, "INSERT INTO track_artists (track_id, artist_id, position) VALUES (%s, %s, 0), (%s, %s, 1)",
             (tid, a1, tid, a2))
         assert rejected(conn, "INSERT INTO track_artists (track_id, artist_id, position) VALUES (%s, %s, 2)",

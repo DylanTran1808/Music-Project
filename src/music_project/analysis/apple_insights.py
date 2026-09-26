@@ -91,7 +91,8 @@ _FEAT_IN_TITLE = re.compile(r"[(\[]\s*(?:feat\.?|ft\.|featuring|with)\s+([^)\]]+
 _DECORATION = re.compile(r"[(\[]([^)\]]*)[)\]]|\s-\s(.*)$")
 
 _VERSION_TAGS = {
-    "remix": r"remix|rmx|\bmix\b|bootleg|\bflip\b",
+    # "Extended Mix" / "Original Mix" are not remixes (EDM naming for the long / original cut).
+    "remix": r"remix|rmx|(?<!extended )(?<!original )\bmix\b|bootleg|\bflip\b",
     "live": r"\blive\b",
     "acoustic": r"acoustic|unplugged",
     "slowed": r"slowed",
@@ -102,6 +103,8 @@ _VERSION_TAGS = {
     "cover": r"\bcover\b",
     "lofi": r"lo-?fi",
     "ost": r"\bost\b|soundtrack|\bfrom\s",
+    "extended": r"extended",
+    "edit": r"\bedit\b",  # radio / movie edit; "edition" doesn't match
 }
 
 

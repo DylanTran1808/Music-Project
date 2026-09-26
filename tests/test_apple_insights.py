@@ -31,6 +31,10 @@ def demo():
     assert split_artists("Lil Nas X", None) == ["Lil Nas X"]
     assert version_tags("Song (Slowed + Reverb)") == ["slowed", "reverb"]
     assert version_tags("Live Forever") == []  # "live" only counts in decorations
+    assert version_tags("Mưa Cuối - Extended Mix") == ["extended"]
+    assert version_tags("I Could Be The One [Radio Edit]") == ["edit"]
+    assert version_tags("Song (Deluxe Edition)") == []  # "edition" is not an edit
+    assert version_tags("Song (Original Mix)") == [] and version_tags("Song (Club Mix)") == ["remix"]
     assert script_lang("Xin Lỗi") == "vi" and script_lang("Đen") == "vi"
     assert script_lang("사랑") == "ko" and script_lang("桃花诺") == "zh" and script_lang("Hello") == "latin"
 

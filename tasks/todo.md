@@ -241,6 +241,41 @@ Apple↔Spotify `match_key` overlap per pair, and merge groups with > 2 source i
 
 ---
 
+## Task 7b: Recording-level tracks (keep versions apart, group by song) ✅
+
+_Done 2026-09-26. Also fixed in `apple_insights._VERSION_TAGS`: "Extended Mix" / "Original Mix" no longer count as remixes. `p_music` was rebuilt from scratch (backup in `data/backups/p_music_before_T7b_*.dump`), which also proved a fresh DB rebuilds from the repo (migrations 001–004 + backfill, ~5 s). Result: 4,924 recordings of 4,816 songs, all totals match, song-level sharing unchanged (kien~viethung 305). Known limit: two different remixes of one song by the same artist ("Legends Never Die - (Remix)" vs "(Alan Walker Remix)") still share a recording, since the remixer's name isn't part of the key._
+
+**Description:** Requested by the user on 2026-09-26: "Hit" and "Hit (Remix)" sound different, and future
+audio analysis needs one row per recording. `migrations/004_recordings.sql` adds `tracks.song_key`
+(artist | base title, the old match_key) with an index. `tracks.match_key` becomes the **recording
+key**: song_key plus the audio-changing version tags, e.g. `sidewalks and skeletons|goth|v:reverb+slowed`.
+Every version tag counts except `ost` (a label) and `remaster` (same performance); "feat. X" is not a
+version, so it still merges. `extended` and `edit` are added to `apple_insights._VERSION_TAGS`
+("Extended Mix", "Radio Edit"). Both loaders key the catalogue by recording. `p_music` is rebuilt
+(backup → drop → migrate → backfill); it holds no hand-entered data yet. The backfill reports sharing at
+song level.
+
+**Acceptance criteria:**
+- [x] "Hit", "Hit (feat. B)" and "Hit - From X Soundtrack" share one recording; "Hit (Remix)", "Hit (Slowed + Reverb)" and "Hit (Extended Mix)" are separate recordings; all have `song_key = 'a|hit'`
+- [x] Same on the Spotify side ("Song (Sped Up)" is its own recording); the same original on Apple and Spotify is still one row
+- [x] Rebuilt `p_music`: backfill totals all match, ~4,930 recordings, song-level sharing unchanged (kien~viethung 305)
+
+**Verification:**
+- [x] Tests pass: `tests/test_db_load.py`, `tests/test_apple_insights.py`, and the full suite
+- [x] Manual check: `Goth` / `Goth (Slowed + Reverb)` / `Goth (Sped up + Reverb)` are 3 recordings of one song
+
+**Dependencies:** T7
+
+**Files likely touched:**
+- `migrations/004_recordings.sql`
+- `src/music_project/db/load.py`, `src/music_project/analysis/apple_insights.py`
+- `scripts/backfill.py`
+- `tests/test_db_load.py`
+
+**Estimated scope:** M
+
+---
+
 ## Checkpoint: Intake
 - [ ] End-to-end in the app: new person → demographics → accounts → uploads → DB rows + HF files
 - [ ] Backfill totals match; all tests pass
@@ -250,7 +285,7 @@ Apple↔Spotify `match_key` overlap per pair, and merge groups with > 2 source i
 
 ## Task 8: Artist demographics from MusicBrainz
 
-**Description:** `migrations/004_artist_demographics.sql` adds these columns to `artists`:
+**Description:** `migrations/005_artist_demographics.sql` adds these columns to `artists`:
 `mb_id`, `artist_type`, `gender` (users' fixed list + `not_applicable`), `country` (ISO alpha-2),
 `area`, `birth_area`, `begin_date`, `end_date`, `release_languages text[]` (ISO 639-1, most frequent
 first), `first_release_year`, `tags text[]`, `match_status` (CHECK `auto|ambiguous|not_found|manual`),
@@ -284,10 +319,10 @@ the new artists only, with a progress bar; `requests` is declared in `pyproject.
 - [ ] Tests pass: `uv run python tests/test_musicbrainz.py` (recorded JSON fixtures, no network)
 - [ ] Manual check: `select name, artist_type, gender, country, begin_date from artists where match_status='auto' order by random() limit 20`, then spot-check against MusicBrainz
 
-**Dependencies:** T7
+**Dependencies:** T7b
 
 **Files likely touched:**
-- `migrations/004_artist_demographics.sql`
+- `migrations/005_artist_demographics.sql`
 - `src/music_project/connectors/musicbrainz.py`, `src/music_project/connectors/wikidata.py`
 - `scripts/enrich_artists.py`
 - `app/streamlit_app.py`, `pyproject.toml`
@@ -299,11 +334,11 @@ the new artists only, with a progress bar; `requests` is declared in `pyproject.
 
 ## Task 9: Query tools + `user_track_stats` view
 
-**Description:** `migrations/005_stats_view.sql`: `user_track_stats` view per **person** × track
+**Description:** `migrations/006_stats_view.sql`: `user_track_stats` view per **person** × track
 (Apple plays/skips/loved, Spotify streams/skips/ms, first/last played, sources). Functions in
 `music_project/db/queries.py`, each returning a DataFrame, all with parameterized SQL:
 - `users()`, `user_profile(handle)` (demographics + computed `age` + accounts + per-source counts)
-- `top_tracks(handle, source=None, n=20)`, `top_artists(handle, n=20)`
+- `top_tracks(handle, source=None, n=20, level="song")` (`level="recording"` keeps versions apart), `top_artists(handle, n=20)`
 - `listening_by_month(handle)`, split by source, so a service switch is visible
 - `shared_tracks(a, b)`, `search_tracks(text)`
 - `users_by(gender=, age_min=, age_max=, city=, country=, native_language=, musical_background=, instrument=, genre=)`
@@ -326,7 +361,7 @@ the new artists only, with a progress bar; `requests` is declared in `pyproject.
 **Dependencies:** T8
 
 **Files likely touched:**
-- `migrations/005_stats_view.sql`
+- `migrations/006_stats_view.sql`
 - `src/music_project/db/queries.py`
 - `tests/test_queries.py`
 

@@ -45,11 +45,13 @@ def db_totals(cur, source, account_id):
     return {"events": cur.fetchone()[0]}
 
 
-PERSON_TRACKS = """
-    SELECT u.handle, x.track_id FROM users u JOIN user_accounts a ON a.user_id = u.id
+# Songs, not recordings: liking "Goth" and "Goth (Slowed + Reverb)" is the same taste.
+PERSON_SONGS = """
+    SELECT DISTINCT u.handle, t.song_key FROM users u JOIN user_accounts a ON a.user_id = u.id
     JOIN (SELECT account_id, track_id FROM library_items
           UNION SELECT account_id, track_id FROM listening_events WHERE track_id IS NOT NULL) x
-      ON x.account_id = a.id"""
+      ON x.account_id = a.id
+    JOIN tracks t ON t.id = x.track_id"""
 
 MERGE_GROUPS = """
     WITH ids AS (SELECT track_id, 'apple:' || account_id || ':' || apple_persistent_id AS sid FROM library_items
@@ -83,18 +85,21 @@ def main():
             print(f"{'OK      ' if src == got else 'MISMATCH'} {r['source']:<11} {r['username']:<10} "
                   f"source {src}  db {got}  hf: {r['hf_path'] or 'not on HF'}")
 
-        print("\n== Shared tracks per pair of people")
-        cur.execute(PERSON_TRACKS)
-        tracks = {}
-        for handle, track_id in cur.fetchall():
-            tracks.setdefault(handle, set()).add(track_id)
-        for a, b in combinations(sorted(tracks), 2):
-            print(f"{a:>10} ~ {b:<10} {len(tracks[a] & tracks[b]):>5} shared   "
-                  f"(of {len(tracks[a])} / {len(tracks[b])})")
+        cur.execute("SELECT count(*), count(DISTINCT song_key) FROM tracks")
+        print("\n== Catalogue: {} recordings of {} songs".format(*cur.fetchone()))
+
+        print("\n== Shared songs per pair of people")
+        cur.execute(PERSON_SONGS)
+        songs = {}
+        for handle, song_key in cur.fetchall():
+            songs.setdefault(handle, set()).add(song_key)
+        for a, b in combinations(sorted(songs), 2):
+            print(f"{a:>10} ~ {b:<10} {len(songs[a] & songs[b]):>5} shared   "
+                  f"(of {len(songs[a])} / {len(songs[b])})")
 
         cur.execute(MERGE_GROUPS)
         groups = cur.fetchall()
-        print(f"\n== Songs merged from > 2 source ids: {len(groups)} (top 15)")
+        print(f"\n== Recordings merged from > 2 source ids: {len(groups)} (top 15)")
         for key, n in groups[:15]:
             print(f"{n:>4}  {key}")
     conn.close()

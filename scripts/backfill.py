@@ -5,7 +5,8 @@ Load every export in data/ (laid out like the HF dataset) into p_music and check
     uv run python scripts/backfill.py --data-dir ~/hf-snapshot --offline
 
 Safe to re-run: Apple loads replace the account's library, Spotify loads skip stored
-plays, existing people keep their demographics. Prints per-account totals against the
+plays, existing people keep their demographics, and the committed fixes in overrides/
+(TV-show song credits, researched artist facts) are re-applied. Prints per-account totals against the
 source files (exit 1 on any mismatch), shared tracks per pair of people, and songs
 merged from more than two source ids (worth a look: over-merging shows up here).
 """
@@ -22,6 +23,7 @@ from music_project.connectors import upload
 from music_project.connectors.common import DEFAULT_REPO_ID
 from music_project.db import connect
 from music_project.db.load import load_data_dir
+from music_project.db.overrides import apply_overrides
 
 
 def source_totals(source, path):
@@ -75,6 +77,7 @@ def main():
 
     conn = connect()
     results = load_data_dir(conn, args.data_dir, hf_files)
+    fixes = apply_overrides(conn)  # committed catalogue fixes: TV-show credits, researched artist facts
 
     ok = True
     print("== Totals: source files vs p_music")
@@ -103,6 +106,7 @@ def main():
         for key, n in groups[:15]:
             print(f"{n:>4}  {key}")
     conn.close()
+    print(f"\n== Overrides applied: {fixes}")
     print("\nall totals match" if ok else "\nMISMATCH: see above")
     return ok
 

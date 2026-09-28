@@ -328,6 +328,7 @@ Also: a `scripts/enrich_artists.py` CLI and `requests` declared in `pyproject.to
 - `tests/test_musicbrainz.py` (covers both connectors with fixtures)
 - `migrations/006_language_groups.sql`, `src/music_project/db/languages.py` (vi/en scope, 2026-09-28)
 - `migrations/007_web_research.sql` (`web` status/source + `source_url`, 2026-09-29): artists MusicBrainz can't match are researched on the web; each saved fact cites its page. Batch 1 (top 20 by plays) done: 19 Vietnamese, Yasuharu Takanashi Japanese → excluded; wrong auto-matches for Minh Hiếu / Lâm Anh fixed.
+- `overrides/` + `src/music_project/db/overrides.py` (2026-09-29): committed catalogue fixes re-applied by `scripts/backfill.py`. `credits.json`: 83 songs the release credits to a TV show (RAP VIỆT, ANH TRAI / EM XINH / TINH HÀ "SAY HI", Anh Trai Vượt Ngàn Chông Gai, Chị Đẹp Đạp Gió Rẽ Sóng, Tân Binh Toàn Năng, The Masked Singer, Biển Của Hy Vọng), with performers first and the show last, marked as a `tv show` programme. 24 were researched per song on the web, the other 59 already named their performers (feat.). "TOGETHER WE SHINE" (cast theme song) stays credited to the show. `artists.json`: the 31 web-researched artist facts. The rest of the review list (755 artists) is left to the user.
 
 **Estimated scope:** M
 

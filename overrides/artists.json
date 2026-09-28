@@ -1,0 +1,644 @@
+[
+ {
+  "name": "ANH TRAI \"SAY HI\"",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": "e5486c7f-9e32-4652-b30b-7d792c93f500",
+   "wikidata_id": null,
+   "artist_type": "other",
+   "gender": null,
+   "country": null,
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [
+    "tv show"
+   ],
+   "source_url": null
+  }
+ },
+ {
+  "name": "Anh Trai Vượt Ngàn Chông Gai",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": "861ccb68-4110-49fc-a690-d274d886dad2",
+   "wikidata_id": null,
+   "artist_type": "other",
+   "gender": "not_applicable",
+   "country": "VN",
+   "area": "Vietnam",
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [
+    "vi"
+   ],
+   "first_release_year": 2026,
+   "tags": [
+    "tv show"
+   ],
+   "source_url": null
+  }
+ },
+ {
+  "name": "Biển Của Hy Vọng",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": "other",
+   "gender": null,
+   "country": null,
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [
+    "tv show"
+   ],
+   "source_url": null
+  }
+ },
+ {
+  "name": "Chị Đẹp Đạp Gió Rẽ Sóng",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": "other",
+   "gender": null,
+   "country": null,
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [
+    "tv show"
+   ],
+   "source_url": null
+  }
+ },
+ {
+  "name": "CHIN",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/vn/song/ng%C6%B0%E1%BB%A3c-gi%C3%B3/1781330523"
+  }
+ },
+ {
+  "name": "Cường Bạch",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": "person",
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/track/0SclCApqwaZLVfvLFZzONv"
+  }
+ },
+ {
+  "name": "Đen",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": "person",
+   "gender": "male",
+   "country": "VN",
+   "area": null,
+   "birth_area": "Đồng Nai",
+   "begin_date": "1989-05-13",
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://en.wikipedia.org/wiki/%C4%90en_(rapper)"
+  }
+ },
+ {
+  "name": "Đức Duy",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": "person",
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/track/0SclCApqwaZLVfvLFZzONv"
+  }
+ },
+ {
+  "name": "EM XINH \"SAY HI\"",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": "1688e801-60b7-4deb-8467-878bce8e020a",
+   "wikidata_id": null,
+   "artist_type": "other",
+   "gender": "not_applicable",
+   "country": "VN",
+   "area": "Vietnam",
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [
+    "vi"
+   ],
+   "first_release_year": 2025,
+   "tags": [
+    "tv show"
+   ],
+   "source_url": null
+  }
+ },
+ {
+  "name": "Hà Lê",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": "person",
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": "1984-09-26",
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://vi.wikipedia.org/wiki/H%C3%A0_L%C3%AA"
+  }
+ },
+ {
+  "name": "Lam",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": "person",
+   "gender": null,
+   "country": "VN",
+   "area": "Hanoi",
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.elleman.vn/elle-man-360/nhan-vat/minh-toc-lam-hanh-trinh-am-nhac-elleman-2025/"
+  }
+ },
+ {
+  "name": "Lâm Anh",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": "person",
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/track/0SclCApqwaZLVfvLFZzONv"
+  }
+ },
+ {
+  "name": "Minh Hiếu",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": "person",
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/track/0SclCApqwaZLVfvLFZzONv"
+  }
+ },
+ {
+  "name": "Minh Tốc",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": "person",
+   "gender": null,
+   "country": "VN",
+   "area": "Hanoi",
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.elleman.vn/elle-man-360/nhan-vat/minh-toc-lam-hanh-trinh-am-nhac-elleman-2025/"
+  }
+ },
+ {
+  "name": "MONSTAR",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": "group",
+   "gender": "not_applicable",
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": "2016-09-01",
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://vi.wikipedia.org/wiki/Monstar_(nh%C3%B3m_nh%E1%BA%A1c)"
+  }
+ },
+ {
+  "name": "Orinn",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": "other",
+   "gender": null,
+   "country": "VN",
+   "area": "Ho Chi Minh City",
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.facebook.com/OrinnMusic/"
+  }
+ },
+ {
+  "name": "PC",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": "person",
+   "gender": "male",
+   "country": "VN",
+   "area": "Ho Chi Minh City",
+   "birth_area": "Pleiku, Gia Lai",
+   "begin_date": "1998-08-25",
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://viethiphop.vn/threads/pc.9110/"
+  }
+ },
+ {
+  "name": "RAP VIỆT",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": "other",
+   "gender": null,
+   "country": null,
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [
+    "tv show"
+   ],
+   "source_url": null
+  }
+ },
+ {
+  "name": "Rapital",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": "group",
+   "gender": "not_applicable",
+   "country": "VN",
+   "area": "Hanoi",
+   "birth_area": null,
+   "begin_date": "2018-06-06",
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://vietcetera.com/vn/rapital-du-tho-cho-rap-thu-do"
+  }
+ },
+ {
+  "name": "Shiki",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": "person",
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.saigonchoice.com/shiki-nha-san-xuat-album-danh-doi-cho-obito-ra-mat-ep-dau-tay-1-ca-khuc-lap-tuc-gay-sot/"
+  }
+ },
+ {
+  "name": "Swan Nguyễn",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": "person",
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/track/0SclCApqwaZLVfvLFZzONv"
+  }
+ },
+ {
+  "name": "Tân Binh Toàn Năng",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": "other",
+   "gender": null,
+   "country": null,
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [
+    "tv show"
+   ],
+   "source_url": null
+  }
+ },
+ {
+  "name": "Táo",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": "person",
+   "gender": "male",
+   "country": "VN",
+   "area": null,
+   "birth_area": "Ho Chi Minh City",
+   "begin_date": "1994-06-13",
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://vtv.vn/van-hoa-giai-tri/rapper-tao-ga-tam-than-den-tu-cay-co-thu-cua-noi-buon-2018011914434678.htm"
+  }
+ },
+ {
+  "name": "Thái Đinh",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": "person",
+   "gender": "male",
+   "country": "VN",
+   "area": null,
+   "birth_area": "Hạ Long, Quảng Ninh",
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://thanhnien.vn/hoang-tu-ballad-la-ai-ma-gay-nho-thuong-1851498340.htm"
+  }
+ },
+ {
+  "name": "The Masked Singer",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": "other",
+   "gender": null,
+   "country": null,
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [
+    "tv show"
+   ],
+   "source_url": null
+  }
+ },
+ {
+  "name": "the most romantic man in hanoi",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": "person",
+   "gender": "male",
+   "country": "VN",
+   "area": "Hanoi",
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/us/artist/the-most-romantic-man-in-hanoi/1700690538"
+  }
+ },
+ {
+  "name": "TINH HÀ \"SAY HI\"",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": "other",
+   "gender": null,
+   "country": null,
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [
+    "tv show"
+   ],
+   "source_url": null
+  }
+ },
+ {
+  "name": "Trung Tâm Băng Đĩa Lậu Hải Ngoại",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": "group",
+   "gender": "not_applicable",
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://producerviet.fandom.com/wiki/Trung_T%C3%A2m_B%C4%83ng_%C4%90%C4%A9a_L%E1%BA%ADu_H%E1%BA%A3i_Ngo%E1%BA%A1i"
+  }
+ },
+ {
+  "name": "Tùng TeA",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": "person",
+   "gender": "male",
+   "country": "VN",
+   "area": null,
+   "birth_area": "Pleiku, Gia Lai",
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://viez.vn/taynguyen-sound-ban-tinh-ca-sau-lang-cua-nui-rung-tay-nguyen-8Hv1ogSnjbbJ.html"
+  }
+ },
+ {
+  "name": "Wxrdie",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": "person",
+   "gender": "male",
+   "country": "VN",
+   "area": null,
+   "birth_area": "Hà Nội",
+   "begin_date": "2000-02-10",
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://nhac.vn/nghe-si/wxrdie-at8DW0X/tieu-su"
+  }
+ },
+ {
+  "name": "Yasuharu Takanashi",
+  "status": "web",
+  "source": "wikidata",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": "person",
+   "gender": null,
+   "country": "JP",
+   "area": null,
+   "birth_area": null,
+   "begin_date": "1964-04-13",
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.wikidata.org/w/index.php?search=Yasuharu+Takanashi"
+  }
+ }
+]

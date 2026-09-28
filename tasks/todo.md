@@ -333,9 +333,9 @@ Also: a `scripts/enrich_artists.py` CLI and `requests` declared in `pyproject.to
 
 ## Task 9: Query tools + `user_track_stats` view
 
-**Description:** `migrations/006_stats_view.sql`: `user_track_stats` view per **person** × track
+**Description:** `migrations/007_stats_view.sql`: `user_track_stats` view per **person** × track
 (Apple plays/skips/loved, Spotify streams/skips/ms, first/last played, sources). Functions in
-`music_project/db/queries.py`, each returning a DataFrame, all with parameterized SQL:
+`music_project/db/queries.py`, each returning a DataFrame, all with parameterized SQL, **defaulting to tracks/artists with `lang_group` in ('vi', 'en')** (`languages=None` for everything):
 - `users()`, `user_profile(handle)` (demographics + computed `age` + accounts + per-source counts)
 - `top_tracks(handle, source=None, n=20, level="song")` (`level="recording"` keeps versions apart), `top_artists(handle, n=20)`
 - `listening_by_month(handle)`, split by source, so a service switch is visible
@@ -360,7 +360,7 @@ Also: a `scripts/enrich_artists.py` CLI and `requests` declared in `pyproject.to
 **Dependencies:** T8
 
 **Files likely touched:**
-- `migrations/006_stats_view.sql`
+- `migrations/007_stats_view.sql`
 - `src/music_project/db/queries.py`
 - `tests/test_queries.py`
 

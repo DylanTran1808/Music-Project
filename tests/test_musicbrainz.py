@@ -134,6 +134,10 @@ def test_enrich_artists():
         queue = review_items(conn)
         assert [(r["name"], r["match_status"]) for r in queue] == [("Hiền Hồ", "not_found"), ("Wren", "ambiguous")]
         assert queue[0]["candidates"]["wikidata"][0]["label"] == "Hien Ho" and queue[1]["albums"] == []
+        # Scope filter: only artists in the given language groups (vi / en) are queued.
+        run(conn, "UPDATE artists SET lang_group = CASE name WHEN 'Wren' THEN 'other' ELSE 'vi' END")
+        assert [r["name"] for r in review_items(conn, lang_groups=("vi", "en"))] == ["Hiền Hồ"]
+        run(conn, "UPDATE artists SET lang_group = NULL")
 
         # Re-run: only the failed artist is looked up again; the manual row is still untouched.
         calls.clear()

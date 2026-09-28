@@ -112,8 +112,11 @@ def coverage(conn) -> list:
         return cur.fetchall()
 
 
-def review_items(conn) -> list:
-    """Artists waiting for the user's decision, most-listened first, with what we know about them."""
+def review_items(conn, lang_groups: Optional[tuple] = None) -> list:
+    """
+    Artists waiting for the user's decision, most-listened first, with what we know about them.
+    lang_groups (e.g. ("vi", "en")) keeps only artists in those language groups.
+    """
     with conn, conn.cursor(cursor_factory=RealDictCursor) as cur:
         cur.execute(f"""
             SELECT a.id, a.name, a.match_status, coalesce(s.plays, 0)::bigint AS plays, a.candidates,
@@ -129,5 +132,6 @@ def review_items(conn) -> list:
                              WHERE ta.artist_id = a.id), '{{}}') AS listeners
             FROM artists a LEFT JOIN {PLAYS} s ON s.artist_id = a.id
             WHERE a.match_status IN ('ambiguous', 'not_found')
-            ORDER BY coalesce(s.plays, 0) DESC, a.name""")
+              AND (%(groups)s::text[] IS NULL OR a.lang_group = ANY(%(groups)s::text[]))
+            ORDER BY coalesce(s.plays, 0) DESC, a.name""", {"groups": list(lang_groups) if lang_groups else None})
         return cur.fetchall()

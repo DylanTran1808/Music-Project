@@ -326,6 +326,8 @@ Also: a `scripts/enrich_artists.py` CLI and `requests` declared in `pyproject.to
 - `scripts/enrich_artists.py`
 - `app/streamlit_app.py`, `pyproject.toml`
 - `tests/test_musicbrainz.py` (covers both connectors with fixtures)
+- `migrations/006_language_groups.sql`, `src/music_project/db/languages.py` (vi/en scope, 2026-09-28)
+- `migrations/007_web_research.sql` (`web` status/source + `source_url`, 2026-09-29): artists MusicBrainz can't match are researched on the web; each saved fact cites its page. Batch 1 (top 20 by plays) done: 19 Vietnamese, Yasuharu Takanashi Japanese → excluded; wrong auto-matches for Minh Hiếu / Lâm Anh fixed.
 
 **Estimated scope:** M
 

@@ -16,7 +16,7 @@ from psycopg2.extras import Json, RealDictCursor
 from music_project.connectors import musicbrainz, wikidata
 
 DEMOGRAPHIC_FIELDS = ("mb_id", "wikidata_id", "artist_type", "gender", "country", "area", "birth_area",
-                      "begin_date", "end_date", "release_languages", "first_release_year", "tags")
+                      "begin_date", "end_date", "release_languages", "first_release_year", "tags", "source_url")
 
 # Plays per artist: Apple play counts + Spotify plays, through any track the artist is credited on.
 PLAYS = """
@@ -47,13 +47,17 @@ def _update(cur, artist_id: int, fields: dict, keep_manual: bool = True) -> None
                 [*fields.values(), artist_id])
 
 
-def set_artist_demographics(conn, artist_id: int, source: str, **fields) -> None:
-    """The user's decision for an artist (source: musicbrainz / wikidata / user); saved as 'manual'."""
+def set_artist_demographics(conn, artist_id: int, source: str, status: str = "manual", **fields) -> None:
+    """
+    Sets an artist's demographics outside the automatic lookup. The default is the user's decision
+    (status 'manual'); web research results use status='web', source='web' and a source_url.
+    Either way a later lookup run leaves the row alone.
+    """
     unknown = set(fields) - set(DEMOGRAPHIC_FIELDS)
     if unknown:
         raise ValueError(f"unknown artist fields: {sorted(unknown)}")
     with conn, conn.cursor() as cur:
-        _update(cur, artist_id, {**fields, "match_status": "manual", "demographics_source": source},
+        _update(cur, artist_id, {**fields, "match_status": status, "demographics_source": source},
                 keep_manual=False)
         cur.execute("UPDATE artists SET fetched_at = coalesce(fetched_at, now()) WHERE id = %s", (artist_id,))
 

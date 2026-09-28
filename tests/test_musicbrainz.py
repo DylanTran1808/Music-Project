@@ -139,12 +139,21 @@ def test_enrich_artists():
         assert [r["name"] for r in review_items(conn, lang_groups=("vi", "en"))] == ["Hiền Hồ"]
         run(conn, "UPDATE artists SET lang_group = NULL")
 
+        # Web research results: their own status and source, with the page they came from; they
+        # leave the review queue and a later lookup run doesn't touch them.
+        set_artist_demographics(conn, ids["Wren"], "web", status="web", artist_type="person", country="VN",
+                                source_url="https://example.org/wren")
+        assert run(conn, "SELECT match_status, demographics_source, country, source_url FROM artists WHERE id = %s",
+                   (ids["Wren"],)) == [("web", "web", "VN", "https://example.org/wren")]
+        assert [r["name"] for r in review_items(conn)] == ["Hiền Hồ"]
+
         # Re-run: only the failed artist is looked up again; the manual row is still untouched.
         calls.clear()
         musicbrainz.search_artist = lambda name: calls.append(name) or SEARCH.get(name, [])
         assert enrich_artists(conn) == {"auto": 0, "ambiguous": 0, "not_found": 1, "errors": 0}
         assert calls == ["Boom"]
         assert row("Hand Made")[:5] == ("manual", "user", None, "female", "VN")
+        assert row("Wren")[:2] == ("web", "web")
 
 
 if __name__ == "__main__":

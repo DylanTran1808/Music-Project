@@ -283,7 +283,9 @@ song level.
 
 ---
 
-## Task 8: Artist demographics from MusicBrainz
+## Task 8: Artist demographics from MusicBrainz ✅
+
+_Done 2026-09-29. MusicBrainz matched 56% of artists / 70% of plays automatically; the top unmatched ones and all TV-show songs were researched on the web (see notes below); the remaining 755 in `data/artist_review.md` are the user's to decide._
 
 **Description:** `migrations/005_artist_demographics.sql` adds these columns to `artists`:
 `mb_id`, `artist_type`, `gender` (users' fixed list + `not_applicable`), `country` (ISO alpha-2),
@@ -308,15 +310,15 @@ stored as candidates, never applied.
 Also: a `scripts/enrich_artists.py` CLI and `requests` declared in `pyproject.toml`. _Changed 2026-09-26:_ the in-app lookup moved to T10's Artists page as a "Look up N new artists" button, because a new person's upload can bring ~1,000 artists (~3 s each), too long to run inside one page request.
 
 **Acceptance criteria:**
-- [ ] `pick_match`: exact unique hit → `auto`; two close hits with no album overlap → `ambiguous`; album overlap breaks a tie; no hits → `not_found`
-- [ ] Re-running after an interruption continues where it stopped; a `manual` row is unchanged after a re-run
-- [ ] From fixtures: a person gets gender/country/birth date, `release_languages` in frequency order with ISO 639-1 codes (`{vi,en}` for 11 `vie` + 2 `eng` releases), and `first_release_year`; a group gets `gender = 'not_applicable'`. `artist_demographics.age` is correct for a living, a deceased, and an undated artist (NULL)
-- [ ] Full run over the backfilled artists prints the auto / ambiguous / not_found split, weighted by plays too (coverage of what people actually listen to)
-- [ ] Unmatched artists are written to `data/artist_review.md` (per artist: plays, our album titles, MusicBrainz candidates, Wikidata candidates with description/gender/country/birth). **Show it to the user and apply only their choices** (`set_artist_demographics`, saved as `manual`)
+- [x] `pick_match`: exact unique hit → `auto`; two close hits with no album overlap → `ambiguous`; album overlap breaks a tie; no hits → `not_found`
+- [x] Re-running after an interruption continues where it stopped; a `manual` row is unchanged after a re-run
+- [x] From fixtures: a person gets gender/country/birth date, `release_languages` in frequency order with ISO 639-1 codes (`{vi,en}` for 11 `vie` + 2 `eng` releases), and `first_release_year`; a group gets `gender = 'not_applicable'`. `artist_demographics.age` is correct for a living, a deceased, and an undated artist (NULL)
+- [x] Full run over the backfilled artists prints the auto / ambiguous / not_found split, weighted by plays too (coverage of what people actually listen to)
+- [x] Unmatched artists are written to `data/artist_review.md` (per artist: plays, our album titles, MusicBrainz candidates, Wikidata candidates with description/gender/country/birth). **Show it to the user and apply only their choices** (`set_artist_demographics`, saved as `manual`)
 
 **Verification:**
-- [ ] Tests pass: `uv run python tests/test_musicbrainz.py` (recorded JSON fixtures, no network)
-- [ ] Manual check: `select name, artist_type, gender, country, begin_date from artists where match_status='auto' order by random() limit 20`, then spot-check against MusicBrainz
+- [x] Tests pass: `uv run python tests/test_musicbrainz.py` (recorded JSON fixtures, no network)
+- [x] Manual check: `select name, artist_type, gender, country, begin_date from artists where match_status='auto' order by random() limit 20`, then spot-check against MusicBrainz
 
 **Dependencies:** T7b
 

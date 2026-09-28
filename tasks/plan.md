@@ -183,7 +183,7 @@ Full task cards are in `tasks/todo.md`.
 - [ ] Backfill totals equal the source files; reloading changes nothing; all tests pass
 
 ### Phase 3: Artists + Query
-- [ ] T8: Artist demographics from MusicBrainz
+- [x] T8: Artist demographics from MusicBrainz
 - [ ] T9: Query tools + `user_track_stats` view
 - [ ] T10: App Explore + Artists pages
 

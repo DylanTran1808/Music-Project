@@ -1,5 +1,145 @@
 [
  {
+  "name": "#SSdaRealest",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://v11.nhaccuatui.com/video/neu-anh-chang-con-ben-em-lyric-video-quockiet-ft-ssdarealest.Vz4Oki4eziaZH.html"
+  }
+ },
+ {
+  "name": "1 9 6 7",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/bai-hat/nguoi-choi-he-dep-1-9-6-7-remix-16-typh-ft-1-9-6-7.KyM8d25MWEfa.html"
+  }
+ },
+ {
+  "name": "2T",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://hopamviet.vn/chord/composer/4679/2t"
+  }
+ },
+ {
+  "name": "502 Ocean",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://hopamchuan.com/artist/266834/502-ocean"
+  }
+ },
+ {
+  "name": "8 the Theatre",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://vietcetera.com/vn/du-an-classic-and-more-diem-cham-cua-duong-dai-va-co-dien"
+  }
+ },
+ {
+  "name": "Ali Hoàng Dương",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://en.wikipedia.org/wiki/Anh_trai_%22say_hi%22"
+  }
+ },
+ {
+  "name": "An Vũ",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/bai-hat/chang-trai-bat-tu-an-vu-ft-sino.Ef8i7MtNC6gb.html"
+  }
+ },
+ {
   "name": "ANH TRAI \"SAY HI\"",
   "status": "web",
   "source": "web",
@@ -46,6 +186,106 @@
   }
  },
  {
+  "name": "Avin Lu",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.elle.vn/trai-nghiem/avin-lu-va-yama-laurent-trinh-dien-am-nhac-fuse/"
+  }
+ },
+ {
+  "name": "B Ray",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/vn/album/b%E1%BA%A3n-nh%E1%BA%A1c-cu%E1%BB%91i-cho-em-single/1655893254"
+  }
+ },
+ {
+  "name": "Bảo",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/track/3PURs1ybWaMfuyukPhZx2M"
+  }
+ },
+ {
+  "name": "Bệt Band",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/vn/artist/b%E1%BB%87t-band/1487848213"
+  }
+ },
+ {
+  "name": "Biên",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://vtcnews.vn/giai-ma-hien-tuong-hai-trieu-nam-cua-den-vau-mv-dau-tu-von-ven-2-trieu-dong-van-lot-top-trending-ar483229.html"
+  }
+ },
+ {
   "name": "Biển Của Hy Vọng",
   "status": "web",
   "source": "web",
@@ -65,6 +305,166 @@
     "tv show"
    ],
    "source_url": null
+  }
+ },
+ {
+  "name": "Bình Gold",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://dantri.com.vn/giai-tri/binh-gold-tu-tho-xam-thanh-nhan-vat-tai-tieng-trong-lang-rap-viet-20250724090729539.htm"
+  }
+ },
+ {
+  "name": "Bột Màu Khoai Tây Cà Rốt",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://tubrr.vn/bot-mau-khoai-tay-ca-rot"
+  }
+ },
+ {
+  "name": "Boyzed",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/us/song/bu%E1%BB%93n-hay-vui-feat-boyzed-obito-rpt-mck-ronboogz/1759395433"
+  }
+ },
+ {
+  "name": "Bui Duy Ngoc",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://en.wikipedia.org/wiki/Anh_trai_%22say_hi%22"
+  }
+ },
+ {
+  "name": "Cam",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/track/6bTb5JTu5dcf65QhgTxbDP"
+  }
+ },
+ {
+  "name": "Cao Đình Thắng",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://vovworld.vn/vi-VN/giai-dieu-que-huong/nhac-si-cao-dinh-thang-trong-mua-do-am-nhac-vang-len-de-tam-hon-rung-dong-2248615.vov5"
+  }
+ },
+ {
+  "name": "Captain",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://en.wikipedia.org/wiki/Anh_trai_%22say_hi%22"
+  }
+ },
+ {
+  "name": "CHARLES.",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/track/143jrxLvd5XygndL0V7HYr"
   }
  },
  {
@@ -110,6 +510,86 @@
   }
  },
  {
+  "name": "Chủ Tịch Kim",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/bai-hat/goi-nhung-bong-hoa-nho-tang-em-chu-tich-kim.mtzgFkqTvTVN.html"
+  }
+ },
+ {
+  "name": "Cigar",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/vn/album/dalat-1810-feat-cigar-longlu-single/1799416224"
+  }
+ },
+ {
+  "name": "Clow",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://hopamchuan.com/artist/98476/clow"
+  }
+ },
+ {
+  "name": "Coldzy",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://yeah1.com/viet-nam/coldzy-rapper-viet-dau-tien-ra-album-deluxe-a427-d126004.html"
+  }
+ },
+ {
   "name": "Cường Bạch",
   "status": "web",
   "source": "web",
@@ -127,6 +607,146 @@
    "first_release_year": null,
    "tags": [],
    "source_url": "https://open.spotify.com/track/0SclCApqwaZLVfvLFZzONv"
+  }
+ },
+ {
+  "name": "D Blue",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://viethiphop.vn/threads/pc.9110/"
+  }
+ },
+ {
+  "name": "D'CEE",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/video/dai-kho-cute-version-lyric-video-dcee-viet-nam-ft-anh-thu-ft-cm1x.ha7B7NbIy0Iez.html"
+  }
+ },
+ {
+  "name": "Dab",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/vn/artist/dab/1556917472"
+  }
+ },
+ {
+  "name": "Đặng Hoàng Hải",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/artist/355549"
+  }
+ },
+ {
+  "name": "Datmaniac",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.phunuonline.com.vn/cai-toi-khac-biet-cua-datmaniac-a1526539.html"
+  }
+ },
+ {
+  "name": "Dau Tat Dat",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/bai-hat/lua-chon-cua-em-buitruonglinh-ft-vu-phung-tien-ft-dau-tat-dat.gyatBFwsZa1D.html"
+  }
+ },
+ {
+  "name": "Dấu Vân Tay",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://vietcetera.com/vn/nam-2024-ban-da-nghe-nhung-album-nhac-viet-nay-chua-cap-nhat-thang-10"
   }
  },
  {
@@ -150,6 +770,166 @@
   }
  },
  {
+  "name": "Dick",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/artist/253933"
+  }
+ },
+ {
+  "name": "Dillan Hoàng Phan",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://en.wikipedia.org/wiki/Anh_trai_%22say_hi%22"
+  }
+ },
+ {
+  "name": "Đình Dũng",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://znews.vn/dinh-dung-tan-binh-thong-tri-vpop-bang-am-nhac-co-trang-post1033713.html"
+  }
+ },
+ {
+  "name": "Đinh Tùng Huy",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://hopamviet.vn/chord/singer/dinh-tung-huy"
+  }
+ },
+ {
+  "name": "dờn",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/track/5mEYICayf2XBx6huxfvOJn"
+  }
+ },
+ {
+  "name": "DONAL",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/track/3GTiiLSOamvkmQ8mI3xI2k"
+  }
+ },
+ {
+  "name": "Dong thoi gian",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/song/iTyYZwWNvz70"
+  }
+ },
+ {
+  "name": "DORI MEDIA",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.facebook.com/dorimediamusic/"
+  }
+ },
+ {
   "name": "Đức Duy",
   "status": "web",
   "source": "web",
@@ -167,6 +947,146 @@
    "first_release_year": null,
    "tags": [],
    "source_url": "https://open.spotify.com/track/0SclCApqwaZLVfvLFZzONv"
+  }
+ },
+ {
+  "name": "Duckie",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/us/song/la-beaut%C3%A9-de-saigon-feat-duckie-ph%C3%A1t-karrot/1637177978"
+  }
+ },
+ {
+  "name": "Dunghoangpham",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/id/artist/dunghoangpham/1599380195"
+  }
+ },
+ {
+  "name": "Duniverse",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://esquire.vn/duniverse-tan-binh-tiem-nang-moi-cua-vpop/"
+  }
+ },
+ {
+  "name": "Dương Minh Tuấn",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://nhac.vn/bai-hat/em-oi-anh-phai-lam-sao-duong-minh-tuan-soBNkxy"
+  }
+ },
+ {
+  "name": "Dương Trần Nghĩa",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://nhac.vn/video/tuyet-yeu-thuong-cover-duong-tran-nghia-ngo-lan-huong-mv9oDE"
+  }
+ },
+ {
+  "name": "Duongg",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://hopamviet.vn/chord/song/3107/W8IU6DFW.html"
+  }
+ },
+ {
+  "name": "Duzme Music",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/bai-hat/anh-dau-tu-luc-em-di-duzme-remix-tran-manh-cuong.7y5rk69HSKfd.html"
   }
  },
  {
@@ -194,6 +1114,366 @@
   }
  },
  {
+  "name": "Emcee L (Da LAB)",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://tuoitre.vn/emcee-l-dua-nhung-demo-da-lab-tu-choi-hat-cung-vao-album-solo-dau-tay-100260924191455074.htm"
+  }
+ },
+ {
+  "name": "EmceeDan",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://vi.wikipedia.org/wiki/Mono_(ca_s%C4%A9)"
+  }
+ },
+ {
+  "name": "Erik",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://vi.wikipedia.org/wiki/Monstar_(nh%C3%B3m_nh%E1%BA%A1c)"
+  }
+ },
+ {
+  "name": "Exclusive Music",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/album/4grg44HuJhh4fPTgEvQxtQ"
+  }
+ },
+ {
+  "name": "Fishy",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/us/artist/fishy/1618452575?l=vi"
+  }
+ },
+ {
+  "name": "Forest Studio",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/artist/489903"
+  }
+ },
+ {
+  "name": "Fowlex",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/track/6lF1Osp1BZ0rbB0DMuIDiv"
+  }
+ },
+ {
+  "name": "Freaky",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://hopamviet.vn/chord/song/muon-duoc-cung-em/W8IU8988.html"
+  }
+ },
+ {
+  "name": "GAI",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://hopamviet.vn/chord/song/muon-duoc-cung-em/W8IU8988.html"
+  }
+ },
+ {
+  "name": "Galaxyy",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/bai-hat/chay-mai-par-sg-ft-galaxyy.OY0oCgq2EF4M.html"
+  }
+ },
+ {
+  "name": "Gia",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://v11.nhaccuatui.com/video/com-ao-gao-vang-gia-tran-nguyen-gia-gia.IdhWZ376oWhOw.html"
+  }
+ },
+ {
+  "name": "Giấy Gấp",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.youtube.com/watch?v=yfclDeadvEI"
+  }
+ },
+ {
+  "name": "Gill",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://rapviet.fandom.com/vi/wiki/Gill"
+  }
+ },
+ {
+  "name": "Gonzo",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://vietcetera.com/vn/rapital-du-tho-cho-rap-thu-do"
+  }
+ },
+ {
+  "name": "Guen",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/us/song/m%E1%BB%99ng-m%C6%A1-v%C3%A0-t%C3%ACnh-y%C3%AAu/1824146758"
+  }
+ },
+ {
+  "name": "H2O Remix",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/nghe-si-h2o.html"
+  }
+ },
+ {
+  "name": "H2O Vinahouse",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/us/song/khoan-thai-remix/1813491518"
+  }
+ },
+ {
+  "name": "Ha Chung",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/track/4KLAvmGf7flT2lQqBNOCMD"
+  }
+ },
+ {
   "name": "Hà Lê",
   "status": "web",
   "source": "web",
@@ -211,6 +1491,446 @@
    "first_release_year": null,
    "tags": [],
    "source_url": "https://vi.wikipedia.org/wiki/H%C3%A0_L%C3%AA"
+  }
+ },
+ {
+  "name": "Hà Myo",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://hoahoctro.tienphong.vn/chu-nhan-hit-nghieng-nuoc-nghieng-thanh-ha-myo-don-trung-thu-voi-thanh-am-ram-ro-post1875263.tpo"
+  }
+ },
+ {
+  "name": "Hải Nam",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://en.wikipedia.org/wiki/Anh_trai_%22say_hi%22"
+  }
+ },
+ {
+  "name": "Harmonie",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/la/album/h%C6%A1n-c%E1%BA%A3-n%E1%BA%AFm-tay-feat-th%E1%BA%BF-anh-shinichi-single/1760622973"
+  }
+ },
+ {
+  "name": "Hoan Le",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/video/giac-mo-tung-rat-tho-y-tho-nguoi-vi-em-la-anh-trang-le-loi-mer-viet-nam-ft-quang-huy-viet-nam-ft-hoan-le.QUOTSW4ZFixcY.html"
+  }
+ },
+ {
+  "name": "hqhuy",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/vn/artist/hqhuy/1823287349?l=vi"
+  }
+ },
+ {
+  "name": "Hustlang Robber",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://thanhnien.vn/quan-quan-rap-viet-2024-hustlang-robber-la-ai-185241215141305786.htm"
+  }
+ },
+ {
+  "name": "Huỳnh Tú",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://thanhnien.vn/huynh-tu-ke-chuyen-lam-mv-duong-mot-chieu-tuong-khong-hot-ma-hot-khong-tuong-1851244590.htm"
+  }
+ },
+ {
+  "name": "Ivy",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://soundcloud.com/parystran/parachute-parys-feat-ivy-official-audio-1"
+  }
+ },
+ {
+  "name": "Jack",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.invert.vn/jack-ar5225"
+  }
+ },
+ {
+  "name": "Jank",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://hopamviet.vn/chord/song/thuong-thi-thoi/W8IUABAD.html"
+  }
+ },
+ {
+  "name": "JC Hưng",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://nhac.vn/bai-hat/ben-anh-dem-nay-binz-jc-hung-soawGbp"
+  }
+ },
+ {
+  "name": "Jey",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.amazon.com/tracks/B0FSR6XKH9"
+  }
+ },
+ {
+  "name": "JGKiD (Da LAB)",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/track/1n1YojP4DpMlfAKlhcbl5x"
+  }
+ },
+ {
+  "name": "KayN",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/playlist/tru-mua-drill-remake-kayn.AiujFq2kGr8z.html"
+  }
+ },
+ {
+  "name": "Kejo",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/bai-hat/tham-phu-phu-ho-kejo-ft-yuri.kojQkTwWlJG4.html"
+  }
+ },
+ {
+  "name": "Kha",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/song/MmRadD8bHJhJ"
+  }
+ },
+ {
+  "name": "Khắc Việt",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://hopamviet.vn/chord/song/yeu-lai-tu-dau/W8IUI7AZ.html"
+  }
+ },
+ {
+  "name": "KHÁNH",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/vn/album/cao-%E1%BB%91c-20-feat-masew-kh%C3%A1nh-single/1768316727?l=vi"
+  }
+ },
+ {
+  "name": "Khói",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://nhac.vn/bai-hat/anh-the-m-duo-c-ngu-khoi-soaeDQP"
+  }
+ },
+ {
+  "name": "Khoi Vu",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/us/song/s%E1%BB%9Bm-mu%E1%BB%99n-th%C3%AC/1851435670"
+  }
+ },
+ {
+  "name": "Kidz",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/bai-hat/thang-12-anh-co-kidz.3RKDtx5wL4go.html"
+  }
+ },
+ {
+  "name": "KIMLONG",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://tuoitre.vn/kimlong-nghe-si-hiem-hoi-phu-song-ca-anh-trai-vuot-ngan-chong-gai-lan-tinh-ha-say-hi-100260727112910413.htm"
   }
  },
  {
@@ -254,6 +1974,386 @@
   }
  },
  {
+  "name": "Lãng",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/track/0Hzh4SoX1st9W22vZieLrm"
+  }
+ },
+ {
+  "name": "Larria.",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://viez.vn/nha-san-xuat-am-nhac-gen-z-kewtiie-larria-lucin3x-Y3G253N4ayu7.html"
+  }
+ },
+ {
+  "name": "Lil Zpoet",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://hopamviet.vn/chord/song/tu-em-ma-ra/W8IU6D9E.html"
+  }
+ },
+ {
+  "name": "Limitlxss",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://producerviet.fandom.com/wiki/Limitlxss"
+  }
+ },
+ {
+  "name": "Linh Hương Luz",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/album/1OOGZOXES01UpAAy1ZfIIS"
+  }
+ },
+ {
+  "name": "Lohan",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://en.wikipedia.org/wiki/Anh_trai_%22say_hi%22"
+  }
+ },
+ {
+  "name": "Long Phạm",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://hopamviet.vn/chord/song/gio-van-hat/W8IUUCZF.html"
+  }
+ },
+ {
+  "name": "LOPE PHAM",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.viberate.com/artist/lope-pham/"
+  }
+ },
+ {
+  "name": "Low G.",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://producerviet.fandom.com/wiki/Low_G"
+  }
+ },
+ {
+  "name": "Lucin3x",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://viez.vn/nha-san-xuat-am-nhac-gen-z-kewtiie-larria-lucin3x-Y3G253N4ayu7.html"
+  }
+ },
+ {
+  "name": "Luxuyen",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/us/album/%C4%91%C3%B3-ch%E1%BB%89-l%C3%A0-th%C3%A0nh-ph%E1%BB%91-c%E1%BB%A7a-anh-feat-new%24oulz-single/1583199118"
+  }
+ },
+ {
+  "name": "M NAIVE",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/vn/artist/m-naive/1530047183"
+  }
+ },
+ {
+  "name": "Mai Ngô",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://en.wikipedia.org/wiki/Mai_Ng%C3%B4"
+  }
+ },
+ {
+  "name": "Mason nguyen",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/bai-hat/hai-thang-bip-mason-nguyen-ft-24kright-ft-hipz.j61YL74zNOmL.html"
+  }
+ },
+ {
+  "name": "Mcredit",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://mcredit.com.vn/vi/tin-hoat-dong/mcredit-ket-hop-cung-cac-rapper-trieu-view-tung-sieu-pham-am-nhac-danh-tang-khach-hang-dip-cuoi-nam"
+  }
+ },
+ {
+  "name": "Mee Media",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/artist/03A7qa4lY7tRu54wSu5FMt"
+  }
+ },
+ {
+  "name": "MICKEY",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/track/3GTiiLSOamvkmQ8mI3xI2k"
+  }
+ },
+ {
+  "name": "Milly",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/song/doiSWS4Zghsw"
+  }
+ },
+ {
+  "name": "Minh Đinh",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/vn/song/n%E1%BA%B1m-b%C3%AAn-anh/6764456425?l=vi"
+  }
+ },
+ {
   "name": "Minh Hiếu",
   "status": "web",
   "source": "web",
@@ -294,6 +2394,66 @@
   }
  },
  {
+  "name": "Minh Triều",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/bai-hat/hennessy-acoustic-version-haisam-ft-minh-trieu.fg945Iwek4th.html"
+  }
+ },
+ {
+  "name": "Minstu",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/sg/artist/minstu/1539613450"
+  }
+ },
+ {
+  "name": "MONO",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://vi.wikipedia.org/wiki/Mono_(ca_s%C4%A9)"
+  }
+ },
+ {
   "name": "MONSTAR",
   "status": "web",
   "source": "web",
@@ -311,6 +2471,486 @@
    "first_release_year": null,
    "tags": [],
    "source_url": "https://vi.wikipedia.org/wiki/Monstar_(nh%C3%B3m_nh%E1%BA%A1c)"
+  }
+ },
+ {
+  "name": "MTV band",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://vi.wikipedia.org/wiki/MTV_(nh%C3%B3m_nh%E1%BA%A1c)"
+  }
+ },
+ {
+  "name": "My Anh",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://vietnamnet.vn/my-anh-hat-nhin-nhung-mua-thu-di-2026769.html"
+  }
+ },
+ {
+  "name": "Mỹ Mỹ",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/track/2U2u397Ae67nMMB4tje3Sq"
+  }
+ },
+ {
+  "name": "Myhai",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/track/3PURs1ybWaMfuyukPhZx2M"
+  }
+ },
+ {
+  "name": "MYLINA",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://v11.nhaccuatui.com/video/vuon-may-vua-hay-an-ngo-ft-mylina-viet-nam.lE8EhxZ6r1ZkI.html"
+  }
+ },
+ {
+  "name": "Myra Trần",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/track/3QD2NfLEIvMRbzv2uTu4B7"
+  }
+ },
+ {
+  "name": "Nam Duck",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/vn/album/ch%E1%BB%8B-m%C6%B0%E1%BB%9Di-ba-nam-duck-remix-single/1840642894"
+  }
+ },
+ {
+  "name": "Nam Joyy",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/vn/song/tr%E1%BB%91n-nh%E1%BB%AFng-%C4%91au-th%C6%B0%C6%A1ng-feat-nam-joyy/1750449592"
+  }
+ },
+ {
+  "name": "NAMVEE",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/bai-hat/may-troi-manbo-ft-namvee.CYgyLSjdxxQd.html"
+  }
+ },
+ {
+  "name": "NB3 Hoài Bảo",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://nhanvatshowbiz.com/nb3-hoai-bao"
+  }
+ },
+ {
+  "name": "Ngơ",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/track/76k1sPEziUmM8ravfyjG1L"
+  }
+ },
+ {
+  "name": "Ngô Anh Đạt",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/us/album/c%C3%B4-%E1%BA%A5y-n%C3%B3i-single/1623458830"
+  }
+ },
+ {
+  "name": "Nguyễn Minh Xuân Ái",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/bai-hat/la-tu-luc-since-the-profile-live-version-nguyen-minh-xuan-ai-ft-the-profile.9A2qi4JweUXw.html"
+  }
+ },
+ {
+  "name": "Nguyễn Thạc Bảo Ngọc",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://phunuvietnam.vn/ca-si-nguyen-thac-bao-ngoc-10-nam-am-tham-tao-nhung-ban-hit-trieu-view-da-tro-lai-duong-dua-am-nhac-20250323141500038.htm"
+  }
+ },
+ {
+  "name": "Nguyễn Trọng Tài",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://kenh14.vn/hien-tuong-hongkong1-nguyen-trong-tai-toi-cam-thay-hoi-buon-khi-bi-goi-la-giong-ca-underground-tre-an-may-20190502213753859.chn"
+  }
+ },
+ {
+  "name": "Nguyenn",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://hopamviet.vn/chord/song/di-qua-con-giong-cua-chinh-minh/W8IU9DWO.html"
+  }
+ },
+ {
+  "name": "NH4T Media Music",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/vn/artist/nh4t-media-music/1649596677"
+  }
+ },
+ {
+  "name": "Nhâm Phương Nam",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/us/song/s%E1%BB%9Bm-mu%E1%BB%99n-th%C3%AC/1851435670"
+  }
+ },
+ {
+  "name": "Nhim Bien",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/track/5u28QaMKbSePO69187D470"
+  }
+ },
+ {
+  "name": "NHONHO",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/track/3rR0FdBR5wXMhhnMZ2F4ZO"
+  }
+ },
+ {
+  "name": "Noper",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/my/song/s%E1%BB%91ng-xa-anh-ch%E1%BA%B3ng-d%E1%BB%85-d%C3%A0ng-remix/1714780983"
+  }
+ },
+ {
+  "name": "OCEAN MOB",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://duan24h.net/2023/wavy-rapper.html"
+  }
+ },
+ {
+  "name": "Olew",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://hopamviet.vn/chord/song/roi-ta-se-ngam-phao-hoa-cung-nhau/W8IU8BB7.html"
+  }
+ },
+ {
+  "name": "Orange",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://vi.wikipedia.org/wiki/Orange_(ca_s%C4%A9)"
   }
  },
  {
@@ -334,6 +2974,66 @@
   }
  },
  {
+  "name": "Par SG",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://rapviet.fandom.com/vi/wiki/Par_SG"
+  }
+ },
+ {
+  "name": "Parys",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://soundcloud.com/parystran/parachute-parys-feat-ivy-official-audio-1"
+  }
+ },
+ {
+  "name": "Pay",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/bai-hat/ban-long-pay-ft-phongkhin.FAkElUYlLIgO.html"
+  }
+ },
+ {
   "name": "PC",
   "status": "web",
   "source": "web",
@@ -351,6 +3051,106 @@
    "first_release_year": null,
    "tags": [],
    "source_url": "https://viethiphop.vn/threads/pc.9110/"
+  }
+ },
+ {
+  "name": "Phát",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/us/song/la-beaut%C3%A9-de-saigon-feat-duckie-ph%C3%A1t-karrot/1637177978"
+  }
+ },
+ {
+  "name": "PhucXp",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://hopamviet.vn/chord/song/nhu-anh-da-thay-em/W8IU8AF6.html"
+  }
+ },
+ {
+  "name": "Qinn Media",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/album/2e7gAH37KVgje8rFlYUfZn"
+  }
+ },
+ {
+  "name": "Quang Anh Rhyder",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://voh.com.vn/tieu-su-sao/quang-anh-rhyder-profile-482104.html"
+  }
+ },
+ {
+  "name": "Quang Huy",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/video/giac-mo-tung-rat-tho-y-tho-nguoi-vi-em-la-anh-trang-le-loi-mer-viet-nam-ft-quang-huy-viet-nam-ft-hoan-le.QUOTSW4ZFixcY.html"
   }
  },
  {
@@ -396,6 +3196,166 @@
   }
  },
  {
+  "name": "Reddy",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://nhac.vn/nghe-si/reddy-huu-duy-atQOJj/tieu-su"
+  }
+ },
+ {
+  "name": "Richie D. ICY",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://duan24h.net/2023/richie-d-icy-rapper.html"
+  }
+ },
+ {
+  "name": "Rick",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/vn/song/m%E1%BA%A1n-%C4%91%C3%A0-la/1817979942"
+  }
+ },
+ {
+  "name": "Ringo",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/track/1RNJRx3tK1xRwHWxT7dhSA"
+  }
+ },
+ {
+  "name": "RPT Groovie",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://vietcetera.com/vn/groovie-cai-toi-trong-hip-hop-va-trach-nhiem-cua-nguoi-lam-anh"
+  }
+ },
+ {
+  "name": "RPT Orijinn",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://producerviet.fandom.com/wiki/RPT_Orijinn"
+  }
+ },
+ {
+  "name": "Sáo",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://hopamchuan.com/song/84710/ngoi-nhin-em-khoc-prod-heki/"
+  }
+ },
+ {
+  "name": "Shartnuss",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/track/6kCU6i8iRrAAmJJ8Sj4JYC"
+  }
+ },
+ {
   "name": "Shiki",
   "status": "web",
   "source": "web",
@@ -416,6 +3376,66 @@
   }
  },
  {
+  "name": "Sơn.K",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://en.wikipedia.org/wiki/Anh_trai_%22say_hi%22"
+  }
+ },
+ {
+  "name": "SpideyBoy",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/bai-hat/hong-khong-gai-winno-ft-spideyboy.MyNCsvRIYdXE.html"
+  }
+ },
+ {
+  "name": "SUNI Hạ Linh",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://en.wikipedia.org/wiki/Suni_H%E1%BA%A1_Linh"
+  }
+ },
+ {
   "name": "Swan Nguyễn",
   "status": "web",
   "source": "web",
@@ -433,6 +3453,66 @@
    "first_release_year": null,
    "tags": [],
    "source_url": "https://open.spotify.com/track/0SclCApqwaZLVfvLFZzONv"
+  }
+ },
+ {
+  "name": "T Team",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/bai-hat/muon-noi-voi-em-t-team.tNFtGU4w209A.html"
+  }
+ },
+ {
+  "name": "T.R.I",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://hopamchuan.com/song/36026/sau-chia-tay-ai-cung-khac/anhtuanch1"
+  }
+ },
+ {
+  "name": "Tage",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/track/33YTOmyqaQEZrQPLGVi6M8"
   }
  },
  {
@@ -478,6 +3558,26 @@
   }
  },
  {
+  "name": "TaynguyenSound",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://viez.vn/taynguyen-sound-ban-tinh-ca-sau-lang-cua-nui-rung-tay-nguyen-8Hv1ogSnjbbJ.html"
+  }
+ },
+ {
   "name": "Thái Đinh",
   "status": "web",
   "source": "web",
@@ -495,6 +3595,46 @@
    "first_release_year": null,
    "tags": [],
    "source_url": "https://thanhnien.vn/hoang-tu-ballad-la-ai-ma-gay-nho-thuong-1851498340.htm"
+  }
+ },
+ {
+  "name": "Thái Hoàng",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/us/artist/dj-th%C3%A1i-ho%C3%A0ng/1498556874?l=vi"
+  }
+ },
+ {
+  "name": "Thành Draw",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://producerviet.fandom.com/wiki/Th%C3%A0nh_Draw"
   }
  },
  {
@@ -540,6 +3680,106 @@
   }
  },
  {
+  "name": "The Sheep",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://hoahoctro.tienphong.vn/nhom-nhac-the-sheep-noi-loi-tam-biet-chinh-thuc-khep-lai-hanh-trinh-8-nam-post1689319.tpo"
+  }
+ },
+ {
+  "name": "THEMÈO",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://lpclub.vn/suy-dong-cd"
+  }
+ },
+ {
+  "name": "Tho Trauma",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/vn/song/02-m%C6%A1-l%C3%A0m-ma/1731973408"
+  }
+ },
+ {
+  "name": "TIA",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://tuoitre.vn/ai-dua-em-ve-gay-sot-toan-cau-20260325094006577.htm"
+  }
+ },
+ {
+  "name": "Tiến Minh",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/bai-hat/duong-len-phia-truoc-tien-minh.5LyhLVQWBcuh.html"
+  }
+ },
+ {
   "name": "TINH HÀ \"SAY HI\"",
   "status": "web",
   "source": "web",
@@ -559,6 +3799,106 @@
     "tv show"
    ],
    "source_url": null
+  }
+ },
+ {
+  "name": "tofutns",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://viethiphop.vn/threads/pc.9110/"
+  }
+ },
+ {
+  "name": "TONoise",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/track/6o7CaOFyXiBSSkl8jHW5ou"
+  }
+ },
+ {
+  "name": "Trần Hoài Thân from The Cassette",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://vietcetera.com/vn/the-cassette-cua-than-va-thien"
+  }
+ },
+ {
+  "name": "Trịnh Thiên Ân",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://nhanvatshowbiz.com/trinh-thien-an"
+  }
+ },
+ {
+  "name": "Trung Quân Idol",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://thanhnien.vn/thanh-mua-trung-quan-idol-duoi-nhung-con-mua-dep-18523111113345131.htm"
   }
  },
  {
@@ -582,6 +3922,66 @@
   }
  },
  {
+  "name": "Tryle",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/bai-hat/tro-chuyen-voi-thoi-gian-tryle.8twg0nf17f5v.html"
+  }
+ },
+ {
+  "name": "Tứ Long",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/track/0IbSn77m6lTkFyu6zKn7Fd"
+  }
+ },
+ {
+  "name": "Tùng Chùa",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/us/song/ph%C3%BA-qu%C3%BD-b%C3%B2-vi%C3%AAn-8ight/1566824808"
+  }
+ },
+ {
   "name": "Tùng TeA",
   "status": "web",
   "source": "web",
@@ -599,6 +3999,266 @@
    "first_release_year": null,
    "tags": [],
    "source_url": "https://viez.vn/taynguyen-sound-ban-tinh-ca-sau-lang-cua-nui-rung-tay-nguyen-8Hv1ogSnjbbJ.html"
+  }
+ },
+ {
+  "name": "Tuyet",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://nhac.vn/bai-hat/mot-thuo-thanh-binh-tea-tuyet-soX8enr"
+  }
+ },
+ {
+  "name": "UMIE",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://hopamchuan.com/song/53330/khong-yeu-xin-dung-noi/dangnhanlead"
+  }
+ },
+ {
+  "name": "VCT",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/track/3bzem7maqeh3Bj0xPejgT9"
+  }
+ },
+ {
+  "name": "VINA BẤT DIỆT",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/us/artist/vina-b%E1%BA%A5t-di%E1%BB%87t/1690120899"
+  }
+ },
+ {
+  "name": "Vinh Khuat",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/bai-hat/anh-ghet-minh-vi-con-nho-em-vinh-khuat.fkUc7q5vlExh.html"
+  }
+ },
+ {
+  "name": "Voi Bản Đôn",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://vnexpress.net/khoa-ly-biet-nhac-pham-tai-ca-si-mat-na-gay-sot-4674774.html"
+  }
+ },
+ {
+  "name": "VoVanDuc",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://viethiphop.vn/threads/pc.9110/"
+  }
+ },
+ {
+  "name": "VSOUL",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://vgt.vn/rapper-vsoul-nguoi-choi-he-melody-tung-hoanh-tu-king-of-rap-den-rap-viet-ihyes-20241204t7330967/?lang=en"
+  }
+ },
+ {
+  "name": "Wala",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://open.spotify.com/track/1RNJRx3tK1xRwHWxT7dhSA"
+  }
+ },
+ {
+  "name": "Wang",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://music.apple.com/vn/album/thu-%C4%91i%C3%AAn-feat-wang-galaxyy-single/1591594995"
+  }
+ },
+ {
+  "name": "wAvy",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://duan24h.net/2023/wavy-rapper.html"
+  }
+ },
+ {
+  "name": "WHEE!",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://nhac.vn/bai-hat/bat-chap-whee-sooxdk7"
+  }
+ },
+ {
+  "name": "Willistic",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://duan24h.net/2023/wavy-rapper.html"
   }
  },
  {
@@ -622,6 +4282,26 @@
   }
  },
  {
+  "name": "XOLITXO",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://duan24h.net/2023/wavy-rapper.html"
+  }
+ },
+ {
   "name": "Yasuharu Takanashi",
   "status": "web",
   "source": "wikidata",
@@ -639,6 +4319,26 @@
    "first_release_year": null,
    "tags": [],
    "source_url": "https://www.wikidata.org/w/index.php?search=Yasuharu+Takanashi"
+  }
+ },
+ {
+  "name": "Yuri",
+  "status": "web",
+  "source": "web",
+  "fields": {
+   "mb_id": null,
+   "wikidata_id": null,
+   "artist_type": null,
+   "gender": null,
+   "country": "VN",
+   "area": null,
+   "birth_area": null,
+   "begin_date": null,
+   "end_date": null,
+   "release_languages": [],
+   "first_release_year": null,
+   "tags": [],
+   "source_url": "https://www.nhaccuatui.com/bai-hat/tham-phu-phu-ho-kejo-ft-yuri.kojQkTwWlJG4.html"
   }
  }
 ]

@@ -1,0 +1,23 @@
+{
+  "0": "connectors/__init__.py",
+  "1": "test_app.py",
+  "2": "spotify_insights.py",
+  "3": "apple_insights.py",
+  "4": "import_data.py",
+  "5": "load.py",
+  "6": "Tasks: `p_music` database, intake app, connector + query tools",
+  "7": "am_previews_fetch.py",
+  "8": "upload.py",
+  "9": "apple_fetch.py",
+  "10": "musicbrainz.py",
+  "11": "wikidata.py",
+  "12": "artists.py",
+  "13": "enrich_artists.py",
+  "14": "languages.py",
+  "15": "Project-Music",
+  "16": "artist_fields",
+  "17": "test_musicbrainz.py",
+  "18": "Project Structure",
+  "19": "CLAUDE.md",
+  "20": "Music-Project"
+}

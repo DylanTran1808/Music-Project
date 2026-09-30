@@ -237,3 +237,4 @@ data/*
 
 # Claude Code local settings
 .claude/
+graphify-out/cache/

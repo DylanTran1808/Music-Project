@@ -1,0 +1,260 @@
+{
+  "app/common.py": {
+    "mtime": 1790371526.2121208,
+    "seen": 1790633224.562067,
+    "ast_hash": "9518c150778e31b421f80f9389286cd6",
+    "semantic_hash": ""
+  },
+  "app/pages/import_data.py": {
+    "mtime": 1790371526.21243,
+    "seen": 1790633224.562069,
+    "ast_hash": "23b4172a686e940199fad7a24fcc2efb",
+    "semantic_hash": ""
+  },
+  "app/pages/users.py": {
+    "mtime": 1790368840.3921766,
+    "seen": 1790633224.5620701,
+    "ast_hash": "104e994808184248d05707e3516f6f38",
+    "semantic_hash": ""
+  },
+  "app/streamlit_app.py": {
+    "mtime": 1790368840.4064844,
+    "seen": 1790633224.5620701,
+    "ast_hash": "c0f1e154a56ac335ede705900f6c6b6b",
+    "semantic_hash": ""
+  },
+  "pyproject.toml": {
+    "mtime": 1790450631.5615487,
+    "seen": 1790633224.562071,
+    "ast_hash": "f7f784da4872382ac609f66329c3b827",
+    "semantic_hash": ""
+  },
+  "scripts/am_previews_fetch.py": {
+    "mtime": 1790114852.9359834,
+    "seen": 1790633224.562072,
+    "ast_hash": "05687f52d3207a8f354b789a402af570",
+    "semantic_hash": ""
+  },
+  "scripts/backfill.py": {
+    "mtime": 1790450013.9623919,
+    "seen": 1790633224.562072,
+    "ast_hash": "90c1ab76063ec402915dda43e401a829",
+    "semantic_hash": ""
+  },
+  "scripts/enrich_artists.py": {
+    "mtime": 1790631002.2531793,
+    "seen": 1790633224.562079,
+    "ast_hash": "5523b5fddc56d0a5c31e9fffe1a86dbe",
+    "semantic_hash": ""
+  },
+  "scripts/yt_music_filter.py": {
+    "mtime": 1790524581.3185287,
+    "seen": 1790633224.56208,
+    "ast_hash": "dfe22a6c3d19a02dadd5875dfb93d925",
+    "semantic_hash": ""
+  },
+  "src/music_project/__init__.py": {
+    "mtime": 1789922288.114757,
+    "seen": 1790633224.56208,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "src/music_project/analysis/apple_insights.py": {
+    "mtime": 1790449945.033001,
+    "seen": 1790633224.562081,
+    "ast_hash": "ffcb1d73b829b008e928abce3975ed9a",
+    "semantic_hash": ""
+  },
+  "src/music_project/analysis/report.py": {
+    "mtime": 1790335111.3243542,
+    "seen": 1790633224.562082,
+    "ast_hash": "4e97df9bb86a7d26fa36b607c05c360d",
+    "semantic_hash": ""
+  },
+  "src/music_project/analysis/spotify_insights.py": {
+    "mtime": 1790335111.2352433,
+    "seen": 1790633224.562082,
+    "ast_hash": "1dbe5c4eaa91bc063a28e5a2e97808ab",
+    "semantic_hash": ""
+  },
+  "src/music_project/connectors/__init__.py": {
+    "mtime": 1790333858.901428,
+    "seen": 1790633224.562082,
+    "ast_hash": "fad46f35e147175418e2f4389b53e145",
+    "semantic_hash": ""
+  },
+  "src/music_project/connectors/apple_music.py": {
+    "mtime": 1790333858.9010534,
+    "seen": 1790633224.562083,
+    "ast_hash": "a887e219761798593a8c6955b266b9ea",
+    "semantic_hash": ""
+  },
+  "src/music_project/connectors/audio_embeddings.py": {
+    "mtime": 1789821799.5284915,
+    "seen": 1790633224.562083,
+    "ast_hash": "c430da5930d8284b66007f633571b3fd",
+    "semantic_hash": ""
+  },
+  "src/music_project/connectors/common.py": {
+    "mtime": 1789821215.7216604,
+    "seen": 1790633224.5620842,
+    "ast_hash": "f2e47825a5e736f793e7f3dd406d04b7",
+    "semantic_hash": ""
+  },
+  "src/music_project/connectors/itunes_preview.py": {
+    "mtime": 1790333276.3214319,
+    "seen": 1790633224.5620842,
+    "ast_hash": "5ac4ad1b403e7014b45c96d32f8eb3a3",
+    "semantic_hash": ""
+  },
+  "src/music_project/connectors/musicbrainz.py": {
+    "mtime": 1790450481.0483236,
+    "seen": 1790633224.5620852,
+    "ast_hash": "627239969c8d1af5d040097994c65464",
+    "semantic_hash": ""
+  },
+  "src/music_project/connectors/spotify.py": {
+    "mtime": 1789820761.5531926,
+    "seen": 1790633224.5620852,
+    "ast_hash": "c5b5e9a3f5aac1f62244322238aa45a5",
+    "semantic_hash": ""
+  },
+  "src/music_project/connectors/upload.py": {
+    "mtime": 1790371511.6328092,
+    "seen": 1790633224.5620859,
+    "ast_hash": "7ea331a5721008fa4f17bfd1b3a154c5",
+    "semantic_hash": ""
+  },
+  "src/music_project/connectors/wikidata.py": {
+    "mtime": 1790459399.1193032,
+    "seen": 1790633224.5620859,
+    "ast_hash": "69e57f28635e665ab128f8715b6a9976",
+    "semantic_hash": ""
+  },
+  "src/music_project/db/__init__.py": {
+    "mtime": 1790371526.1586256,
+    "seen": 1790633224.5620868,
+    "ast_hash": "530754f1362719efea1de2a6aa376b79",
+    "semantic_hash": ""
+  },
+  "src/music_project/db/__main__.py": {
+    "mtime": 1790339005.3419232,
+    "seen": 1790633224.5620868,
+    "ast_hash": "fe2ae21acb162012f2f2ac994558cf59",
+    "semantic_hash": ""
+  },
+  "src/music_project/db/artists.py": {
+    "mtime": 1790633059.3299584,
+    "seen": 1790633224.562088,
+    "ast_hash": "81da5815ec6869bdfcd6fc72ea210e15",
+    "semantic_hash": ""
+  },
+  "src/music_project/db/languages.py": {
+    "mtime": 1790630944.4889793,
+    "seen": 1790633224.562088,
+    "ast_hash": "c280bfa83f8e2961167af26eb3b987bf",
+    "semantic_hash": ""
+  },
+  "src/music_project/db/load.py": {
+    "mtime": 1790449998.4431732,
+    "seen": 1790633224.562089,
+    "ast_hash": "ace4f27fbec3cc2d7d5977fec36aa66e",
+    "semantic_hash": ""
+  },
+  "tests/apple_fetch.py": {
+    "mtime": 1790003418.1061494,
+    "seen": 1790633224.562089,
+    "ast_hash": "316ff32579c3022e1f178371b9cd73ba",
+    "semantic_hash": ""
+  },
+  "tests/fixtures/artist_lookups.json": {
+    "mtime": 1790450323.0728219,
+    "seen": 1790633224.56209,
+    "ast_hash": "6dcf2cb6302d36ac906b8cc003755e22",
+    "semantic_hash": ""
+  },
+  "tests/test_app.py": {
+    "mtime": 1790371511.633679,
+    "seen": 1790633224.56209,
+    "ast_hash": "f15a71f53b60dd45ca3bfdbb29877179",
+    "semantic_hash": ""
+  },
+  "tests/test_apple_insights.py": {
+    "mtime": 1790449945.0333261,
+    "seen": 1790633224.562091,
+    "ast_hash": "7a814a5095c2e6436b66fbe1d7d200e8",
+    "semantic_hash": ""
+  },
+  "tests/test_connectors.py": {
+    "mtime": 1790334014.1290846,
+    "seen": 1790633224.562091,
+    "ast_hash": "b501917e9cbbba5a3d29403bac3c6cc5",
+    "semantic_hash": ""
+  },
+  "tests/test_db.py": {
+    "mtime": 1790449998.4428108,
+    "seen": 1790633224.562092,
+    "ast_hash": "1168a3d0e0aa9eee409de4fff3744216",
+    "semantic_hash": ""
+  },
+  "tests/test_db_load.py": {
+    "mtime": 1790449916.9336183,
+    "seen": 1790633224.562092,
+    "ast_hash": "b02028dcd66e4367f3371a39b6bb3a19",
+    "semantic_hash": ""
+  },
+  "tests/test_hf_push.py": {
+    "mtime": 1790371451.975744,
+    "seen": 1790633224.562093,
+    "ast_hash": "94c6748ece796340c38798e8d93f4ece",
+    "semantic_hash": ""
+  },
+  "tests/test_languages.py": {
+    "mtime": 1790630907.8684626,
+    "seen": 1790633224.562093,
+    "ast_hash": "a69661993e4603039f5bf0a3afb01e75",
+    "semantic_hash": ""
+  },
+  "tests/test_musicbrainz.py": {
+    "mtime": 1790633041.3532891,
+    "seen": 1790633224.562094,
+    "ast_hash": "2755837878cd2d4e12b57dccfc8f805b",
+    "semantic_hash": ""
+  },
+  "tests/test_spotify_insights.py": {
+    "mtime": 1790335128.4688277,
+    "seen": 1790633224.562094,
+    "ast_hash": "6236a5d58aebe993221a8ad57e6b5942",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1790546934.8300118,
+    "seen": 1790633224.562094,
+    "ast_hash": "82efb97a359f5c7290bf2513d14686be",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1789291515.594321,
+    "seen": 1790633224.5620952,
+    "ast_hash": "8b761ddbb7ecd661afac1f75bef78a4a",
+    "semantic_hash": ""
+  },
+  "docs/STRUCTURE.md": {
+    "mtime": 1790335169.5699553,
+    "seen": 1790633224.5620952,
+    "ast_hash": "9ec47ce531cea3c172e6d0a75095722a",
+    "semantic_hash": ""
+  },
+  "tasks/plan.md": {
+    "mtime": 1790631041.780253,
+    "seen": 1790633224.562096,
+    "ast_hash": "2a5de22d60d117ea51f8e1060f862e39",
+    "semantic_hash": ""
+  },
+  "tasks/todo.md": {
+    "mtime": 1790633222.8245177,
+    "seen": 1790633224.562096,
+    "ast_hash": "d3337741ddae7d7a46c5aac5ce215c51",
+    "semantic_hash": ""
+  }
+}
